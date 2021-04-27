@@ -1,0 +1,3725 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      autoscaling.knative.dev/minScale: "1"
+      autoscaling.knative.dev/target: "10"
+      k8s.v1.cni.cncf.io/network-status: |-
+        [{
+            "name": "",
+            "interface": "eth0",
+            "ips": [
+                "10.128.2.96"
+            ],
+            "default": true,
+            "dns": {}
+        }]
+      k8s.v1.cni.cncf.io/networks-status: |-
+        [{
+            "name": "",
+            "interface": "eth0",
+            "ips": [
+                "10.128.2.96"
+            ],
+            "default": true,
+            "dns": {}
+        }]
+      kubernetes.io/limit-ranger: 'LimitRanger plugin set: cpu, memory request for
+        container user-container; cpu, memory limit for container user-container;
+        memory request for container queue-proxy; cpu, memory limit for container
+        queue-proxy'
+      openshift.io/scc: restricted
+      serving.knative.dev/creator: opentlc-mgr
+      sidecar.istio.io/inject: "false"
+    creationTimestamp: "2021-04-26T09:14:15Z"
+    generateName: companies-svc-v1-deployment-f8454f7d7-
+    labels:
+      app: companies-svc-v1
+      pod-template-hash: f8454f7d7
+      serving.knative.dev/configuration: companies-svc
+      serving.knative.dev/configurationGeneration: "1"
+      serving.knative.dev/revision: companies-svc-v1
+      serving.knative.dev/revisionUID: 7b0dbb7e-3052-4a5f-be9f-566c42182f1d
+      serving.knative.dev/service: companies-svc
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:autoscaling.knative.dev/minScale: {}
+            f:autoscaling.knative.dev/target: {}
+            f:serving.knative.dev/creator: {}
+            f:sidecar.istio.io/inject: {}
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:pod-template-hash: {}
+            f:serving.knative.dev/configuration: {}
+            f:serving.knative.dev/configurationGeneration: {}
+            f:serving.knative.dev/revision: {}
+            f:serving.knative.dev/revisionUID: {}
+            f:serving.knative.dev/service: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"a9040921-6e49-47bd-9d69-c27da1f8a1bd"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:containers:
+            k:{"name":"queue-proxy"}:
+              .: {}
+              f:env:
+                .: {}
+                k:{"name":"CONTAINER_CONCURRENCY"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"ENABLE_PROFILING"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"METRICS_COLLECTOR_ADDRESS"}:
+                  .: {}
+                  f:name: {}
+                k:{"name":"METRICS_DOMAIN"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"QUEUE_SERVING_PORT"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"REVISION_TIMEOUT_SECONDS"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"SERVING_CONFIGURATION"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"SERVING_ENABLE_PROBE_REQUEST_LOG"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"SERVING_ENABLE_REQUEST_LOG"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"SERVING_LOGGING_CONFIG"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"SERVING_LOGGING_LEVEL"}:
+                  .: {}
+                  f:name: {}
+                k:{"name":"SERVING_NAMESPACE"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"SERVING_POD"}:
+                  .: {}
+                  f:name: {}
+                  f:valueFrom:
+                    .: {}
+                    f:fieldRef:
+                      .: {}
+                      f:apiVersion: {}
+                      f:fieldPath: {}
+                k:{"name":"SERVING_POD_IP"}:
+                  .: {}
+                  f:name: {}
+                  f:valueFrom:
+                    .: {}
+                    f:fieldRef:
+                      .: {}
+                      f:apiVersion: {}
+                      f:fieldPath: {}
+                k:{"name":"SERVING_READINESS_PROBE"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"SERVING_REQUEST_LOG_TEMPLATE"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"SERVING_REQUEST_METRICS_BACKEND"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"SERVING_REVISION"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"SERVING_SERVICE"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"SYSTEM_NAMESPACE"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"TRACING_CONFIG_BACKEND"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"TRACING_CONFIG_DEBUG"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"TRACING_CONFIG_SAMPLE_RATE"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"TRACING_CONFIG_STACKDRIVER_PROJECT_ID"}:
+                  .: {}
+                  f:name: {}
+                k:{"name":"TRACING_CONFIG_ZIPKIN_ENDPOINT"}:
+                  .: {}
+                  f:name: {}
+                k:{"name":"USER_PORT"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:name: {}
+              f:ports:
+                .: {}
+                k:{"containerPort":8012,"protocol":"TCP"}:
+                  .: {}
+                  f:containerPort: {}
+                  f:name: {}
+                  f:protocol: {}
+                k:{"containerPort":8022,"protocol":"TCP"}:
+                  .: {}
+                  f:containerPort: {}
+                  f:name: {}
+                  f:protocol: {}
+                k:{"containerPort":9090,"protocol":"TCP"}:
+                  .: {}
+                  f:containerPort: {}
+                  f:name: {}
+                  f:protocol: {}
+                k:{"containerPort":9091,"protocol":"TCP"}:
+                  .: {}
+                  f:containerPort: {}
+                  f:name: {}
+                  f:protocol: {}
+              f:readinessProbe:
+                .: {}
+                f:exec:
+                  .: {}
+                  f:command: {}
+                f:failureThreshold: {}
+                f:periodSeconds: {}
+                f:successThreshold: {}
+                f:timeoutSeconds: {}
+              f:resources:
+                .: {}
+                f:requests:
+                  .: {}
+                  f:cpu: {}
+              f:securityContext:
+                .: {}
+                f:allowPrivilegeEscalation: {}
+                f:capabilities:
+                  .: {}
+                  f:drop: {}
+                f:readOnlyRootFilesystem: {}
+                f:runAsNonRoot: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+            k:{"name":"user-container"}:
+              .: {}
+              f:env:
+                .: {}
+                k:{"name":"JAVA_OPTS"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"K_CONFIGURATION"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"K_REVISION"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"K_SERVICE"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"MONGODB_CONNECTION_STRING"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"PORT"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:lifecycle:
+                .: {}
+                f:preStop:
+                  .: {}
+                  f:httpGet:
+                    .: {}
+                    f:path: {}
+                    f:port: {}
+                    f:scheme: {}
+              f:name: {}
+              f:ports:
+                .: {}
+                k:{"containerPort":8080,"protocol":"TCP"}:
+                  .: {}
+                  f:containerPort: {}
+                  f:name: {}
+                  f:protocol: {}
+              f:resources:
+                .: {}
+                f:limits:
+                  f:cpu: {}
+                  f:memory: {}
+                f:requests:
+                  f:cpu: {}
+                  f:memory: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:imagePullSecrets:
+            .: {}
+            k:{"name":"quay-secret"}:
+              .: {}
+              f:name: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext:
+            .: {}
+            f:fsGroup: {}
+            f:seLinuxOptions:
+              f:level: {}
+          f:terminationGracePeriodSeconds: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2021-04-26T09:14:15Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:k8s.v1.cni.cncf.io/network-status: {}
+            f:k8s.v1.cni.cncf.io/networks-status: {}
+      manager: multus
+      operation: Update
+      time: "2021-04-26T09:14:16Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.128.2.96"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: kubelet
+      operation: Update
+      time: "2021-04-26T09:14:23Z"
+    name: companies-svc-v1-deployment-f8454f7d7-ph76w
+    namespace: companies-catalog
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: companies-svc-v1-deployment-f8454f7d7
+      uid: a9040921-6e49-47bd-9d69-c27da1f8a1bd
+    resourceVersion: "7190797"
+    selfLink: /api/v1/namespaces/companies-catalog/pods/companies-svc-v1-deployment-f8454f7d7-ph76w
+    uid: bf70f84a-d53f-4275-9758-e4722d57524a
+  spec:
+    containers:
+    - env:
+      - name: JAVA_OPTS
+        value: -Dvertx.cacheDirBase=/work/vertx
+      - name: MONGODB_CONNECTION_STRING
+        value: mongodb://admcomp:r3dh4t2021!@mongodb:27017/companies
+      - name: PORT
+        value: "8080"
+      - name: K_REVISION
+        value: companies-svc-v1
+      - name: K_CONFIGURATION
+        value: companies-svc
+      - name: K_SERVICE
+        value: companies-svc
+      image: quay.io/mouachan/companies-svc@sha256:961316429caba6900ac140f737db28d8a71b7fba318ad80891c86eae79578eac
+      imagePullPolicy: IfNotPresent
+      lifecycle:
+        preStop:
+          httpGet:
+            path: /wait-for-drain
+            port: 8022
+            scheme: HTTP
+      name: user-container
+      ports:
+      - containerPort: 8080
+        name: user-port
+        protocol: TCP
+      resources:
+        limits:
+          cpu: 500m
+          memory: 1536Mi
+        requests:
+          cpu: 50m
+          memory: 256Mi
+      securityContext:
+        capabilities:
+          drop:
+          - KILL
+          - MKNOD
+          - SETGID
+          - SETUID
+        runAsUser: 1000730000
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: FallbackToLogsOnError
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-6h2mq
+        readOnly: true
+    - env:
+      - name: SERVING_NAMESPACE
+        value: companies-catalog
+      - name: SERVING_SERVICE
+        value: companies-svc
+      - name: SERVING_CONFIGURATION
+        value: companies-svc
+      - name: SERVING_REVISION
+        value: companies-svc-v1
+      - name: QUEUE_SERVING_PORT
+        value: "8012"
+      - name: CONTAINER_CONCURRENCY
+        value: "0"
+      - name: REVISION_TIMEOUT_SECONDS
+        value: "300"
+      - name: SERVING_POD
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.name
+      - name: SERVING_POD_IP
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: status.podIP
+      - name: SERVING_LOGGING_CONFIG
+        value: |-
+          {
+            "level": "info",
+            "development": false,
+            "outputPaths": ["stdout"],
+            "errorOutputPaths": ["stderr"],
+            "encoding": "json",
+            "encoderConfig": {
+              "timeKey": "ts",
+              "levelKey": "level",
+              "nameKey": "logger",
+              "callerKey": "caller",
+              "messageKey": "msg",
+              "stacktraceKey": "stacktrace",
+              "lineEnding": "",
+              "levelEncoder": "",
+              "timeEncoder": "iso8601",
+              "durationEncoder": "",
+              "callerEncoder": ""
+            }
+          }
+      - name: SERVING_LOGGING_LEVEL
+      - name: SERVING_REQUEST_LOG_TEMPLATE
+        value: '{"httpRequest": {"requestMethod": "{{.Request.Method}}", "requestUrl":
+          "{{js .Request.RequestURI}}", "requestSize": "{{.Request.ContentLength}}",
+          "status": {{.Response.Code}}, "responseSize": "{{.Response.Size}}", "userAgent":
+          "{{js .Request.UserAgent}}", "remoteIp": "{{js .Request.RemoteAddr}}", "serverIp":
+          "{{.Revision.PodIP}}", "referer": "{{js .Request.Referer}}", "latency":
+          "{{.Response.Latency}}s", "protocol": "{{.Request.Proto}}"}, "traceId":
+          "{{index .Request.Header "X-B3-Traceid"}}"}'
+      - name: SERVING_ENABLE_REQUEST_LOG
+        value: "false"
+      - name: SERVING_REQUEST_METRICS_BACKEND
+        value: prometheus
+      - name: TRACING_CONFIG_BACKEND
+        value: none
+      - name: TRACING_CONFIG_ZIPKIN_ENDPOINT
+      - name: TRACING_CONFIG_STACKDRIVER_PROJECT_ID
+      - name: TRACING_CONFIG_DEBUG
+        value: "false"
+      - name: TRACING_CONFIG_SAMPLE_RATE
+        value: "0.1"
+      - name: USER_PORT
+        value: "8080"
+      - name: SYSTEM_NAMESPACE
+        value: knative-serving
+      - name: METRICS_DOMAIN
+        value: knative.dev/internal/serving
+      - name: SERVING_READINESS_PROBE
+        value: '{"tcpSocket":{"port":8080,"host":"127.0.0.1"},"successThreshold":1}'
+      - name: ENABLE_PROFILING
+        value: "false"
+      - name: SERVING_ENABLE_PROBE_REQUEST_LOG
+        value: "false"
+      - name: METRICS_COLLECTOR_ADDRESS
+      image: registry.redhat.io/openshift-serverless-1/serving-queue-rhel8@sha256:b6239db9181d52c5f0fbfc5f59ac5da2a8fbdff3a57d326076d4da19d8135d07
+      imagePullPolicy: IfNotPresent
+      name: queue-proxy
+      ports:
+      - containerPort: 8022
+        name: http-queueadm
+        protocol: TCP
+      - containerPort: 9090
+        name: http-autometric
+        protocol: TCP
+      - containerPort: 9091
+        name: http-usermetric
+        protocol: TCP
+      - containerPort: 8012
+        name: queue-port
+        protocol: TCP
+      readinessProbe:
+        exec:
+          command:
+          - /ko-app/queue
+          - -probe-period
+          - "0"
+        failureThreshold: 3
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 10
+      resources:
+        limits:
+          cpu: 500m
+          memory: 1536Mi
+        requests:
+          cpu: 25m
+          memory: 256Mi
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop:
+          - KILL
+          - MKNOD
+          - SETGID
+          - SETUID
+          - all
+        readOnlyRootFilesystem: true
+        runAsNonRoot: true
+        runAsUser: 1000730000
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-6h2mq
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: false
+    imagePullSecrets:
+    - name: quay-secret
+    nodeName: ip-10-0-139-13.us-east-2.compute.internal
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext:
+      fsGroup: 1000730000
+      seLinuxOptions:
+        level: s0:c27,c14
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 300
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoSchedule
+      key: node.kubernetes.io/memory-pressure
+      operator: Exists
+    volumes:
+    - name: default-token-6h2mq
+      secret:
+        defaultMode: 420
+        secretName: default-token-6h2mq
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-04-26T09:14:15Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-04-26T09:14:23Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-04-26T09:14:23Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-04-26T09:14:15Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: cri-o://9a094f4c5c85984fec8b1e57290a2c9039d370f4e4bc3dd57c2a8263e42dfdbd
+      image: registry.redhat.io/openshift-serverless-1/serving-queue-rhel8@sha256:b6239db9181d52c5f0fbfc5f59ac5da2a8fbdff3a57d326076d4da19d8135d07
+      imageID: registry.redhat.io/openshift-serverless-1/serving-queue-rhel8@sha256:93c15efc07b7600f2c2f5fe97f92797bcbe07c12f6377124a6172899e9ec6c3e
+      lastState: {}
+      name: queue-proxy
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-04-26T09:14:17Z"
+    - containerID: cri-o://c435f6f0864b64dfb440b488b057553067225ad52f27e3ce8b00b96a7415c507
+      image: quay.io/mouachan/companies-svc@sha256:961316429caba6900ac140f737db28d8a71b7fba318ad80891c86eae79578eac
+      imageID: quay.io/mouachan/companies-svc@sha256:961316429caba6900ac140f737db28d8a71b7fba318ad80891c86eae79578eac
+      lastState: {}
+      name: user-container
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-04-26T09:14:17Z"
+    hostIP: 10.0.139.13
+    phase: Running
+    podIP: 10.128.2.96
+    podIPs:
+    - ip: 10.128.2.96
+    qosClass: Burstable
+    startTime: "2021-04-26T09:14:15Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      k8s.v1.cni.cncf.io/network-status: |-
+        [{
+            "name": "",
+            "interface": "eth0",
+            "ips": [
+                "10.131.0.42"
+            ],
+            "default": true,
+            "dns": {}
+        }]
+      k8s.v1.cni.cncf.io/networks-status: |-
+        [{
+            "name": "",
+            "interface": "eth0",
+            "ips": [
+                "10.131.0.42"
+            ],
+            "default": true,
+            "dns": {}
+        }]
+      kubernetes.io/limit-ranger: 'LimitRanger plugin set: cpu, memory request for
+        container deployment; cpu, memory limit for container deployment'
+      openshift.io/deployment-config.name: mongodb
+      openshift.io/deployment.name: mongodb-1
+      openshift.io/scc: restricted
+    creationTimestamp: "2021-04-26T09:08:41Z"
+    labels:
+      openshift.io/deployer-pod-for.name: mongodb-1
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:openshift.io/deployment-config.name: {}
+            f:openshift.io/deployment.name: {}
+          f:labels:
+            .: {}
+            f:openshift.io/deployer-pod-for.name: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"51c2184d-3819-4ad5-9df0-a20b5e433639"}:
+              .: {}
+              f:apiVersion: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:activeDeadlineSeconds: {}
+          f:containers:
+            k:{"name":"deployment"}:
+              .: {}
+              f:env:
+                .: {}
+                k:{"name":"OPENSHIFT_DEPLOYMENT_NAME"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"OPENSHIFT_DEPLOYMENT_NAMESPACE"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:name: {}
+              f:resources:
+                .: {}
+                f:limits:
+                  f:cpu: {}
+                  f:memory: {}
+                f:requests:
+                  f:cpu: {}
+                  f:memory: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext:
+            .: {}
+            f:fsGroup: {}
+            f:seLinuxOptions:
+              f:level: {}
+          f:serviceAccount: {}
+          f:serviceAccountName: {}
+          f:shareProcessNamespace: {}
+          f:terminationGracePeriodSeconds: {}
+      manager: openshift-controller-manager
+      operation: Update
+      time: "2021-04-26T09:08:41Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:k8s.v1.cni.cncf.io/network-status: {}
+            f:k8s.v1.cni.cncf.io/networks-status: {}
+      manager: multus
+      operation: Update
+      time: "2021-04-26T09:08:43Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.131.0.42"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: kubelet
+      operation: Update
+      time: "2021-04-26T09:09:35Z"
+    name: mongodb-1-deploy
+    namespace: companies-catalog
+    ownerReferences:
+    - apiVersion: v1
+      kind: ReplicationController
+      name: mongodb-1
+      uid: 51c2184d-3819-4ad5-9df0-a20b5e433639
+    resourceVersion: "7181007"
+    selfLink: /api/v1/namespaces/companies-catalog/pods/mongodb-1-deploy
+    uid: 60c0028a-5b93-4842-a836-b0f4cf10dd53
+  spec:
+    activeDeadlineSeconds: 21600
+    containers:
+    - env:
+      - name: OPENSHIFT_DEPLOYMENT_NAME
+        value: mongodb-1
+      - name: OPENSHIFT_DEPLOYMENT_NAMESPACE
+        value: companies-catalog
+      image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:cb27ec9c60306aa34fcf631f7a82d71fb5d648570a38830308d38bddee197b18
+      imagePullPolicy: IfNotPresent
+      name: deployment
+      resources:
+        limits:
+          cpu: 500m
+          memory: 1536Mi
+        requests:
+          cpu: 50m
+          memory: 256Mi
+      securityContext:
+        capabilities:
+          drop:
+          - KILL
+          - MKNOD
+          - SETGID
+          - SETUID
+        runAsUser: 1000730000
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: deployer-token-nnshr
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    imagePullSecrets:
+    - name: deployer-dockercfg-hsrsf
+    nodeName: ip-10-0-166-218.us-east-2.compute.internal
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Never
+    schedulerName: default-scheduler
+    securityContext:
+      fsGroup: 1000730000
+      seLinuxOptions:
+        level: s0:c27,c14
+    serviceAccount: deployer
+    serviceAccountName: deployer
+    shareProcessNamespace: false
+    terminationGracePeriodSeconds: 10
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoSchedule
+      key: node.kubernetes.io/memory-pressure
+      operator: Exists
+    volumes:
+    - name: deployer-token-nnshr
+      secret:
+        defaultMode: 420
+        secretName: deployer-token-nnshr
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-04-26T09:08:41Z"
+      reason: PodCompleted
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-04-26T09:09:35Z"
+      reason: PodCompleted
+      status: "False"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-04-26T09:09:35Z"
+      reason: PodCompleted
+      status: "False"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-04-26T09:08:41Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: cri-o://c0dc94da1e03bb5971f11f1bb92fe49dec14b41569caab57b4cd0cf17cb7924e
+      image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:cb27ec9c60306aa34fcf631f7a82d71fb5d648570a38830308d38bddee197b18
+      imageID: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:cb27ec9c60306aa34fcf631f7a82d71fb5d648570a38830308d38bddee197b18
+      lastState: {}
+      name: deployment
+      ready: false
+      restartCount: 0
+      started: false
+      state:
+        terminated:
+          containerID: cri-o://c0dc94da1e03bb5971f11f1bb92fe49dec14b41569caab57b4cd0cf17cb7924e
+          exitCode: 0
+          finishedAt: "2021-04-26T09:09:35Z"
+          reason: Completed
+          startedAt: "2021-04-26T09:08:44Z"
+    hostIP: 10.0.166.218
+    phase: Succeeded
+    podIP: 10.131.0.42
+    podIPs:
+    - ip: 10.131.0.42
+    qosClass: Burstable
+    startTime: "2021-04-26T09:08:41Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      k8s.v1.cni.cncf.io/network-status: |-
+        [{
+            "name": "",
+            "interface": "eth0",
+            "ips": [
+                "10.128.2.92"
+            ],
+            "default": true,
+            "dns": {}
+        }]
+      k8s.v1.cni.cncf.io/networks-status: |-
+        [{
+            "name": "",
+            "interface": "eth0",
+            "ips": [
+                "10.128.2.92"
+            ],
+            "default": true,
+            "dns": {}
+        }]
+      kubernetes.io/limit-ranger: 'LimitRanger plugin set: cpu request for container
+        mongodb; cpu limit for container mongodb'
+      openshift.io/deployment-config.latest-version: "1"
+      openshift.io/deployment-config.name: mongodb
+      openshift.io/deployment.name: mongodb-1
+      openshift.io/scc: restricted
+    creationTimestamp: "2021-04-26T09:08:45Z"
+    generateName: mongodb-1-
+    labels:
+      deployment: mongodb-1
+      deploymentconfig: mongodb
+      name: mongodb
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:openshift.io/deployment-config.latest-version: {}
+            f:openshift.io/deployment-config.name: {}
+            f:openshift.io/deployment.name: {}
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:deployment: {}
+            f:deploymentconfig: {}
+            f:name: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"51c2184d-3819-4ad5-9df0-a20b5e433639"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:containers:
+            k:{"name":"mongodb"}:
+              .: {}
+              f:env:
+                .: {}
+                k:{"name":"MONGODB_ADMIN_PASSWORD"}:
+                  .: {}
+                  f:name: {}
+                  f:valueFrom:
+                    .: {}
+                    f:secretKeyRef:
+                      .: {}
+                      f:key: {}
+                      f:name: {}
+                k:{"name":"MONGODB_DATABASE"}:
+                  .: {}
+                  f:name: {}
+                  f:valueFrom:
+                    .: {}
+                    f:secretKeyRef:
+                      .: {}
+                      f:key: {}
+                      f:name: {}
+                k:{"name":"MONGODB_PASSWORD"}:
+                  .: {}
+                  f:name: {}
+                  f:valueFrom:
+                    .: {}
+                    f:secretKeyRef:
+                      .: {}
+                      f:key: {}
+                      f:name: {}
+                k:{"name":"MONGODB_USER"}:
+                  .: {}
+                  f:name: {}
+                  f:valueFrom:
+                    .: {}
+                    f:secretKeyRef:
+                      .: {}
+                      f:key: {}
+                      f:name: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:livenessProbe:
+                .: {}
+                f:failureThreshold: {}
+                f:initialDelaySeconds: {}
+                f:periodSeconds: {}
+                f:successThreshold: {}
+                f:tcpSocket:
+                  .: {}
+                  f:port: {}
+                f:timeoutSeconds: {}
+              f:name: {}
+              f:ports:
+                .: {}
+                k:{"containerPort":27017,"protocol":"TCP"}:
+                  .: {}
+                  f:containerPort: {}
+                  f:protocol: {}
+              f:readinessProbe:
+                .: {}
+                f:exec:
+                  .: {}
+                  f:command: {}
+                f:failureThreshold: {}
+                f:initialDelaySeconds: {}
+                f:periodSeconds: {}
+                f:successThreshold: {}
+                f:timeoutSeconds: {}
+              f:resources:
+                .: {}
+                f:limits:
+                  .: {}
+                  f:memory: {}
+                f:requests:
+                  .: {}
+                  f:memory: {}
+              f:securityContext:
+                .: {}
+                f:capabilities:
+                  .: {}
+                  f:drop: {}
+                f:privileged: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+              f:volumeMounts:
+                .: {}
+                k:{"mountPath":"/var/lib/mongodb/data"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext:
+            .: {}
+            f:fsGroup: {}
+            f:seLinuxOptions:
+              f:level: {}
+          f:terminationGracePeriodSeconds: {}
+          f:volumes:
+            .: {}
+            k:{"name":"mongodb-data"}:
+              .: {}
+              f:name: {}
+              f:persistentVolumeClaim:
+                .: {}
+                f:claimName: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2021-04-26T09:08:45Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:k8s.v1.cni.cncf.io/network-status: {}
+            f:k8s.v1.cni.cncf.io/networks-status: {}
+      manager: multus
+      operation: Update
+      time: "2021-04-26T09:09:09Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.128.2.92"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: kubelet
+      operation: Update
+      time: "2021-04-26T09:09:35Z"
+    name: mongodb-1-psb45
+    namespace: companies-catalog
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicationController
+      name: mongodb-1
+      uid: 51c2184d-3819-4ad5-9df0-a20b5e433639
+    resourceVersion: "7180973"
+    selfLink: /api/v1/namespaces/companies-catalog/pods/mongodb-1-psb45
+    uid: 3567bece-d5e2-41a3-b354-fffec2290f86
+  spec:
+    containers:
+    - env:
+      - name: MONGODB_USER
+        valueFrom:
+          secretKeyRef:
+            key: database-user
+            name: mongodb
+      - name: MONGODB_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            key: database-password
+            name: mongodb
+      - name: MONGODB_ADMIN_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            key: database-admin-password
+            name: mongodb
+      - name: MONGODB_DATABASE
+        valueFrom:
+          secretKeyRef:
+            key: database-name
+            name: mongodb
+      image: image-registry.openshift-image-registry.svc:5000/openshift/mongodb@sha256:5cd49903c19bb2fd2004b9d70f0af0386c1ec784aa63e91ec13f7ee472230770
+      imagePullPolicy: IfNotPresent
+      livenessProbe:
+        failureThreshold: 3
+        initialDelaySeconds: 30
+        periodSeconds: 10
+        successThreshold: 1
+        tcpSocket:
+          port: 27017
+        timeoutSeconds: 1
+      name: mongodb
+      ports:
+      - containerPort: 27017
+        protocol: TCP
+      readinessProbe:
+        exec:
+          command:
+          - /bin/sh
+          - -i
+          - -c
+          - mongo 127.0.0.1:27017/$MONGODB_DATABASE -u $MONGODB_USER -p $MONGODB_PASSWORD
+            --eval="quit()"
+        failureThreshold: 3
+        initialDelaySeconds: 3
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 1
+      resources:
+        limits:
+          cpu: 500m
+          memory: 512Mi
+        requests:
+          cpu: 50m
+          memory: 512Mi
+      securityContext:
+        capabilities:
+          drop:
+          - KILL
+          - MKNOD
+          - SETGID
+          - SETUID
+        privileged: false
+        runAsUser: 1000730000
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/lib/mongodb/data
+        name: mongodb-data
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-6h2mq
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    imagePullSecrets:
+    - name: default-dockercfg-dp8qz
+    nodeName: ip-10-0-139-13.us-east-2.compute.internal
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext:
+      fsGroup: 1000730000
+      seLinuxOptions:
+        level: s0:c27,c14
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoSchedule
+      key: node.kubernetes.io/memory-pressure
+      operator: Exists
+    volumes:
+    - name: mongodb-data
+      persistentVolumeClaim:
+        claimName: mongodb
+    - name: default-token-6h2mq
+      secret:
+        defaultMode: 420
+        secretName: default-token-6h2mq
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-04-26T09:08:51Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-04-26T09:09:35Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-04-26T09:09:35Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-04-26T09:08:51Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: cri-o://650591fee7e11a761e8dc75b9a01ce73b51371c870596e908323b96ec7e80e4f
+      image: image-registry.openshift-image-registry.svc:5000/openshift/mongodb@sha256:5cd49903c19bb2fd2004b9d70f0af0386c1ec784aa63e91ec13f7ee472230770
+      imageID: image-registry.openshift-image-registry.svc:5000/openshift/mongodb@sha256:5cd49903c19bb2fd2004b9d70f0af0386c1ec784aa63e91ec13f7ee472230770
+      lastState: {}
+      name: mongodb
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-04-26T09:09:20Z"
+    hostIP: 10.0.139.13
+    phase: Running
+    podIP: 10.128.2.92
+    podIPs:
+    - ip: 10.128.2.92
+    qosClass: Burstable
+    startTime: "2021-04-26T09:08:51Z"
+- apiVersion: v1
+  kind: ReplicationController
+  metadata:
+    annotations:
+      openshift.io/deployer-pod.completed-at: 2021-04-26 09:09:35 +0000 UTC
+      openshift.io/deployer-pod.created-at: 2021-04-26 09:08:41 +0000 UTC
+      openshift.io/deployer-pod.name: mongodb-1-deploy
+      openshift.io/deployment-config.latest-version: "1"
+      openshift.io/deployment-config.name: mongodb
+      openshift.io/deployment.phase: Complete
+      openshift.io/deployment.replicas: "1"
+      openshift.io/deployment.status-reason: config change
+      openshift.io/encoded-deployment-config: |
+        {"kind":"DeploymentConfig","apiVersion":"apps.openshift.io/v1","metadata":{"name":"mongodb","namespace":"companies-catalog","uid":"55bea1c4-799b-4b8f-b949-bf58800abdae","resourceVersion":"7179154","generation":2,"creationTimestamp":"2021-04-26T09:08:40Z","labels":{"template":"mongodb-persistent-template"},"annotations":{"template.alpha.openshift.io/wait-for-ready":"true"},"managedFields":[{"manager":"oc","operation":"Update","apiVersion":"apps.openshift.io/v1","time":"2021-04-26T09:08:40Z","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:annotations":{".":{},"f:template.alpha.openshift.io/wait-for-ready":{}},"f:labels":{".":{},"f:template":{}}},"f:spec":{"f:replicas":{},"f:selector":{".":{},"f:name":{}},"f:strategy":{"f:activeDeadlineSeconds":{},"f:recreateParams":{".":{},"f:timeoutSeconds":{}},"f:type":{}},"f:template":{".":{},"f:metadata":{".":{},"f:creationTimestamp":{},"f:labels":{".":{},"f:name":{}}},"f:spec":{".":{},"f:containers":{".":{},"k:{\"name\":\"mongodb\"}":{".":{},"f:env":{".":{},"k:{\"name\":\"MONGODB_ADMIN_PASSWORD\"}":{".":{},"f:name":{},"f:valueFrom":{".":{},"f:secretKeyRef":{".":{},"f:key":{},"f:name":{}}}},"k:{\"name\":\"MONGODB_DATABASE\"}":{".":{},"f:name":{},"f:valueFrom":{".":{},"f:secretKeyRef":{".":{},"f:key":{},"f:name":{}}}},"k:{\"name\":\"MONGODB_PASSWORD\"}":{".":{},"f:name":{},"f:valueFrom":{".":{},"f:secretKeyRef":{".":{},"f:key":{},"f:name":{}}}},"k:{\"name\":\"MONGODB_USER\"}":{".":{},"f:name":{},"f:valueFrom":{".":{},"f:secretKeyRef":{".":{},"f:key":{},"f:name":{}}}}},"f:imagePullPolicy":{},"f:livenessProbe":{".":{},"f:failureThreshold":{},"f:initialDelaySeconds":{},"f:periodSeconds":{},"f:successThreshold":{},"f:tcpSocket":{".":{},"f:port":{}},"f:timeoutSeconds":{}},"f:name":{},"f:ports":{".":{},"k:{\"containerPort\":27017,\"protocol\":\"TCP\"}":{".":{},"f:containerPort":{},"f:protocol":{}}},"f:readinessProbe":{".":{},"f:exec":{".":{},"f:command":{}},"f:failureThreshold":{},"f:initialDelaySeconds":{},"f:periodSeconds":{},"f:successThreshold":{},"f:timeoutSeconds":{}},"f:resources":{".":{},"f:limits":{".":{},"f:memory":{}}},"f:securityContext":{".":{},"f:capabilities":{},"f:privileged":{}},"f:terminationMessagePath":{},"f:terminationMessagePolicy":{},"f:volumeMounts":{".":{},"k:{\"mountPath\":\"/var/lib/mongodb/data\"}":{".":{},"f:mountPath":{},"f:name":{}}}}},"f:dnsPolicy":{},"f:restartPolicy":{},"f:schedulerName":{},"f:securityContext":{},"f:terminationGracePeriodSeconds":{},"f:volumes":{".":{},"k:{\"name\":\"mongodb-data\"}":{".":{},"f:name":{},"f:persistentVolumeClaim":{".":{},"f:claimName":{}}}}}}}}},{"manager":"openshift-controller-manager","operation":"Update","apiVersion":"apps.openshift.io/v1","time":"2021-04-26T09:08:41Z","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{"f:template":{"f:spec":{"f:containers":{"k:{\"name\":\"mongodb\"}":{"f:image":{}}}}},"f:triggers":{}},"f:status":{"f:conditions":{".":{},"k:{\"type\":\"Available\"}":{".":{},"f:lastTransitionTime":{},"f:lastUpdateTime":{},"f:message":{},"f:status":{},"f:type":{}}},"f:details":{".":{},"f:causes":{},"f:message":{}},"f:latestVersion":{},"f:observedGeneration":{}}}}]},"spec":{"strategy":{"type":"Recreate","recreateParams":{"timeoutSeconds":600},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["mongodb"],"from":{"kind":"ImageStreamTag","namespace":"openshift","name":"mongodb:3.6"},"lastTriggeredImage":"image-registry.openshift-image-registry.svc:5000/openshift/mongodb@sha256:5cd49903c19bb2fd2004b9d70f0af0386c1ec784aa63e91ec13f7ee472230770"}},{"type":"ConfigChange"}],"replicas":1,"revisionHistoryLimit":10,"test":false,"selector":{"name":"mongodb"},"template":{"metadata":{"creationTimestamp":null,"labels":{"name":"mongodb"}},"spec":{"volumes":[{"name":"mongodb-data","persistentVolumeClaim":{"claimName":"mongodb"}}],"containers":[{"name":"mongodb","image":"image-registry.openshift-image-registry.svc:5000/openshift/mongodb@sha256:5cd49903c19bb2fd2004b9d70f0af0386c1ec784aa63e91ec13f7ee472230770","ports":[{"containerPort":27017,"protocol":"TCP"}],"env":[{"name":"MONGODB_USER","valueFrom":{"secretKeyRef":{"name":"mongodb","key":"database-user"}}},{"name":"MONGODB_PASSWORD","valueFrom":{"secretKeyRef":{"name":"mongodb","key":"database-password"}}},{"name":"MONGODB_ADMIN_PASSWORD","valueFrom":{"secretKeyRef":{"name":"mongodb","key":"database-admin-password"}}},{"name":"MONGODB_DATABASE","valueFrom":{"secretKeyRef":{"name":"mongodb","key":"database-name"}}}],"resources":{"limits":{"memory":"512Mi"}},"volumeMounts":[{"name":"mongodb-data","mountPath":"/var/lib/mongodb/data"}],"livenessProbe":{"tcpSocket":{"port":27017},"initialDelaySeconds":30,"timeoutSeconds":1,"periodSeconds":10,"successThreshold":1,"failureThreshold":3},"readinessProbe":{"exec":{"command":["/bin/sh","-i","-c","mongo 127.0.0.1:27017/$MONGODB_DATABASE -u $MONGODB_USER -p $MONGODB_PASSWORD --eval=\"quit()\""]},"initialDelaySeconds":3,"timeoutSeconds":1,"periodSeconds":10,"successThreshold":1,"failureThreshold":3},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"IfNotPresent","securityContext":{"capabilities":{},"privileged":false}}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{},"schedulerName":"default-scheduler"}}},"status":{"latestVersion":1,"observedGeneration":1,"replicas":0,"updatedReplicas":0,"availableReplicas":0,"unavailableReplicas":0,"details":{"message":"config change","causes":[{"type":"ConfigChange"}]},"conditions":[{"type":"Available","status":"False","lastUpdateTime":"2021-04-26T09:08:40Z","lastTransitionTime":"2021-04-26T09:08:40Z","message":"Deployment config does not have minimum availability."}]}}
+    creationTimestamp: "2021-04-26T09:08:41Z"
+    generation: 2
+    labels:
+      openshift.io/deployment-config.name: mongodb
+      template: mongodb-persistent-template
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:availableReplicas: {}
+          f:fullyLabeledReplicas: {}
+          f:observedGeneration: {}
+          f:readyReplicas: {}
+          f:replicas: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2021-04-26T09:09:35Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:openshift.io/deployer-pod.completed-at: {}
+            f:openshift.io/deployer-pod.created-at: {}
+            f:openshift.io/deployer-pod.name: {}
+            f:openshift.io/deployment-config.latest-version: {}
+            f:openshift.io/deployment-config.name: {}
+            f:openshift.io/deployment.phase: {}
+            f:openshift.io/deployment.replicas: {}
+            f:openshift.io/deployment.status-reason: {}
+            f:openshift.io/encoded-deployment-config: {}
+          f:labels:
+            .: {}
+            f:openshift.io/deployment-config.name: {}
+            f:template: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"55bea1c4-799b-4b8f-b949-bf58800abdae"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:replicas: {}
+          f:selector:
+            .: {}
+            f:deployment: {}
+            f:deploymentconfig: {}
+            f:name: {}
+          f:template:
+            .: {}
+            f:metadata:
+              .: {}
+              f:annotations:
+                .: {}
+                f:openshift.io/deployment-config.latest-version: {}
+                f:openshift.io/deployment-config.name: {}
+                f:openshift.io/deployment.name: {}
+              f:creationTimestamp: {}
+              f:labels:
+                .: {}
+                f:deployment: {}
+                f:deploymentconfig: {}
+                f:name: {}
+            f:spec:
+              .: {}
+              f:containers:
+                .: {}
+                k:{"name":"mongodb"}:
+                  .: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"MONGODB_ADMIN_PASSWORD"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:secretKeyRef:
+                          .: {}
+                          f:key: {}
+                          f:name: {}
+                    k:{"name":"MONGODB_DATABASE"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:secretKeyRef:
+                          .: {}
+                          f:key: {}
+                          f:name: {}
+                    k:{"name":"MONGODB_PASSWORD"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:secretKeyRef:
+                          .: {}
+                          f:key: {}
+                          f:name: {}
+                    k:{"name":"MONGODB_USER"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:secretKeyRef:
+                          .: {}
+                          f:key: {}
+                          f:name: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:livenessProbe:
+                    .: {}
+                    f:failureThreshold: {}
+                    f:initialDelaySeconds: {}
+                    f:periodSeconds: {}
+                    f:successThreshold: {}
+                    f:tcpSocket:
+                      .: {}
+                      f:port: {}
+                    f:timeoutSeconds: {}
+                  f:name: {}
+                  f:ports:
+                    .: {}
+                    k:{"containerPort":27017,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:protocol: {}
+                  f:readinessProbe:
+                    .: {}
+                    f:exec:
+                      .: {}
+                      f:command: {}
+                    f:failureThreshold: {}
+                    f:initialDelaySeconds: {}
+                    f:periodSeconds: {}
+                    f:successThreshold: {}
+                    f:timeoutSeconds: {}
+                  f:resources:
+                    .: {}
+                    f:limits:
+                      .: {}
+                      f:memory: {}
+                  f:securityContext:
+                    .: {}
+                    f:capabilities: {}
+                    f:privileged: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/var/lib/mongodb/data"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:dnsPolicy: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext: {}
+              f:terminationGracePeriodSeconds: {}
+              f:volumes:
+                .: {}
+                k:{"name":"mongodb-data"}:
+                  .: {}
+                  f:name: {}
+                  f:persistentVolumeClaim:
+                    .: {}
+                    f:claimName: {}
+      manager: openshift-controller-manager
+      operation: Update
+      time: "2021-04-26T09:09:35Z"
+    name: mongodb-1
+    namespace: companies-catalog
+    ownerReferences:
+    - apiVersion: apps.openshift.io/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: DeploymentConfig
+      name: mongodb
+      uid: 55bea1c4-799b-4b8f-b949-bf58800abdae
+    resourceVersion: "7181008"
+    selfLink: /api/v1/namespaces/companies-catalog/replicationcontrollers/mongodb-1
+    uid: 51c2184d-3819-4ad5-9df0-a20b5e433639
+  spec:
+    replicas: 1
+    selector:
+      deployment: mongodb-1
+      deploymentconfig: mongodb
+      name: mongodb
+    template:
+      metadata:
+        annotations:
+          openshift.io/deployment-config.latest-version: "1"
+          openshift.io/deployment-config.name: mongodb
+          openshift.io/deployment.name: mongodb-1
+        creationTimestamp: null
+        labels:
+          deployment: mongodb-1
+          deploymentconfig: mongodb
+          name: mongodb
+      spec:
+        containers:
+        - env:
+          - name: MONGODB_USER
+            valueFrom:
+              secretKeyRef:
+                key: database-user
+                name: mongodb
+          - name: MONGODB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: database-password
+                name: mongodb
+          - name: MONGODB_ADMIN_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: database-admin-password
+                name: mongodb
+          - name: MONGODB_DATABASE
+            valueFrom:
+              secretKeyRef:
+                key: database-name
+                name: mongodb
+          image: image-registry.openshift-image-registry.svc:5000/openshift/mongodb@sha256:5cd49903c19bb2fd2004b9d70f0af0386c1ec784aa63e91ec13f7ee472230770
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            tcpSocket:
+              port: 27017
+            timeoutSeconds: 1
+          name: mongodb
+          ports:
+          - containerPort: 27017
+            protocol: TCP
+          readinessProbe:
+            exec:
+              command:
+              - /bin/sh
+              - -i
+              - -c
+              - mongo 127.0.0.1:27017/$MONGODB_DATABASE -u $MONGODB_USER -p $MONGODB_PASSWORD
+                --eval="quit()"
+            failureThreshold: 3
+            initialDelaySeconds: 3
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              memory: 512Mi
+          securityContext:
+            capabilities: {}
+            privileged: false
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /var/lib/mongodb/data
+            name: mongodb-data
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - name: mongodb-data
+          persistentVolumeClaim:
+            claimName: mongodb
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 2
+    readyReplicas: 1
+    replicas: 1
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      serving.knative.dev/creator: opentlc-mgr
+      serving.knative.dev/lastModifier: opentlc-mgr
+    creationTimestamp: "2021-04-26T09:14:23Z"
+    labels:
+      serving.knative.dev/route: companies-svc
+      serving.knative.dev/service: companies-svc
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:serving.knative.dev/creator: {}
+            f:serving.knative.dev/lastModifier: {}
+          f:labels:
+            .: {}
+            f:serving.knative.dev/route: {}
+            f:serving.knative.dev/service: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"0f51e578-10a9-44f6-bc0d-551064be06c1"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:externalName: {}
+          f:ports:
+            .: {}
+            k:{"port":80,"protocol":"TCP"}:
+              .: {}
+              f:name: {}
+              f:port: {}
+              f:protocol: {}
+              f:targetPort: {}
+          f:sessionAffinity: {}
+          f:type: {}
+      manager: controller
+      operation: Update
+      time: "2021-04-26T09:14:23Z"
+    name: companies-svc
+    namespace: companies-catalog
+    ownerReferences:
+    - apiVersion: serving.knative.dev/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Route
+      name: companies-svc
+      uid: 0f51e578-10a9-44f6-bc0d-551064be06c1
+    resourceVersion: "7190843"
+    selfLink: /api/v1/namespaces/companies-catalog/services/companies-svc
+    uid: 8189cbbb-35b5-40b4-ab12-e4c6edbfb4a3
+  spec:
+    externalName: kourier-internal.knative-serving-ingress.svc.cluster.local
+    ports:
+    - name: http2
+      port: 80
+      protocol: TCP
+      targetPort: 80
+    sessionAffinity: None
+    type: ExternalName
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      autoscaling.knative.dev/class: kpa.autoscaling.knative.dev
+      autoscaling.knative.dev/minScale: "1"
+      autoscaling.knative.dev/target: "10"
+      serving.knative.dev/creator: opentlc-mgr
+      sidecar.istio.io/inject: "false"
+    creationTimestamp: "2021-04-26T09:14:15Z"
+    labels:
+      app: companies-svc-v1
+      networking.internal.knative.dev/serverlessservice: companies-svc-v1
+      networking.internal.knative.dev/serviceType: Public
+      serving.knative.dev/configuration: companies-svc
+      serving.knative.dev/configurationGeneration: "1"
+      serving.knative.dev/revision: companies-svc-v1
+      serving.knative.dev/revisionUID: 7b0dbb7e-3052-4a5f-be9f-566c42182f1d
+      serving.knative.dev/service: companies-svc
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:autoscaling.knative.dev/class: {}
+            f:autoscaling.knative.dev/minScale: {}
+            f:autoscaling.knative.dev/target: {}
+            f:serving.knative.dev/creator: {}
+            f:sidecar.istio.io/inject: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:networking.internal.knative.dev/serverlessservice: {}
+            f:networking.internal.knative.dev/serviceType: {}
+            f:serving.knative.dev/configuration: {}
+            f:serving.knative.dev/configurationGeneration: {}
+            f:serving.knative.dev/revision: {}
+            f:serving.knative.dev/revisionUID: {}
+            f:serving.knative.dev/service: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"03c01298-b511-4c50-bcb7-0cc310aa6a7c"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:ports:
+            .: {}
+            k:{"port":80,"protocol":"TCP"}:
+              .: {}
+              f:name: {}
+              f:port: {}
+              f:protocol: {}
+              f:targetPort: {}
+          f:sessionAffinity: {}
+          f:type: {}
+      manager: controller
+      operation: Update
+      time: "2021-04-26T09:14:15Z"
+    name: companies-svc-v1
+    namespace: companies-catalog
+    ownerReferences:
+    - apiVersion: networking.internal.knative.dev/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ServerlessService
+      name: companies-svc-v1
+      uid: 03c01298-b511-4c50-bcb7-0cc310aa6a7c
+    resourceVersion: "7190467"
+    selfLink: /api/v1/namespaces/companies-catalog/services/companies-svc-v1
+    uid: 3e00908b-ecc3-4521-97e2-6cec1d3640e0
+  spec:
+    clusterIP: 172.30.60.9
+    clusterIPs:
+    - 172.30.60.9
+    ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 8012
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      autoscaling.knative.dev/class: kpa.autoscaling.knative.dev
+      autoscaling.knative.dev/minScale: "1"
+      autoscaling.knative.dev/target: "10"
+      serving.knative.dev/creator: opentlc-mgr
+      sidecar.istio.io/inject: "false"
+    creationTimestamp: "2021-04-26T09:14:15Z"
+    labels:
+      app: companies-svc-v1
+      networking.internal.knative.dev/serverlessservice: companies-svc-v1
+      networking.internal.knative.dev/serviceType: Private
+      serving.knative.dev/configuration: companies-svc
+      serving.knative.dev/configurationGeneration: "1"
+      serving.knative.dev/revision: companies-svc-v1
+      serving.knative.dev/revisionUID: 7b0dbb7e-3052-4a5f-be9f-566c42182f1d
+      serving.knative.dev/service: companies-svc
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:autoscaling.knative.dev/class: {}
+            f:autoscaling.knative.dev/minScale: {}
+            f:autoscaling.knative.dev/target: {}
+            f:serving.knative.dev/creator: {}
+            f:sidecar.istio.io/inject: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:networking.internal.knative.dev/serverlessservice: {}
+            f:networking.internal.knative.dev/serviceType: {}
+            f:serving.knative.dev/configuration: {}
+            f:serving.knative.dev/configurationGeneration: {}
+            f:serving.knative.dev/revision: {}
+            f:serving.knative.dev/revisionUID: {}
+            f:serving.knative.dev/service: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"03c01298-b511-4c50-bcb7-0cc310aa6a7c"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:ports:
+            .: {}
+            k:{"port":80,"protocol":"TCP"}:
+              .: {}
+              f:name: {}
+              f:port: {}
+              f:protocol: {}
+              f:targetPort: {}
+            k:{"port":8022,"protocol":"TCP"}:
+              .: {}
+              f:name: {}
+              f:port: {}
+              f:protocol: {}
+              f:targetPort: {}
+            k:{"port":9090,"protocol":"TCP"}:
+              .: {}
+              f:name: {}
+              f:port: {}
+              f:protocol: {}
+              f:targetPort: {}
+            k:{"port":9091,"protocol":"TCP"}:
+              .: {}
+              f:name: {}
+              f:port: {}
+              f:protocol: {}
+              f:targetPort: {}
+          f:selector:
+            .: {}
+            f:serving.knative.dev/revisionUID: {}
+          f:sessionAffinity: {}
+          f:type: {}
+      manager: controller
+      operation: Update
+      time: "2021-04-26T09:14:15Z"
+    name: companies-svc-v1-private
+    namespace: companies-catalog
+    ownerReferences:
+    - apiVersion: networking.internal.knative.dev/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ServerlessService
+      name: companies-svc-v1
+      uid: 03c01298-b511-4c50-bcb7-0cc310aa6a7c
+    resourceVersion: "7190462"
+    selfLink: /api/v1/namespaces/companies-catalog/services/companies-svc-v1-private
+    uid: 3217766a-2e91-4e4d-8c3b-c7f096caf613
+  spec:
+    clusterIP: 172.30.71.138
+    clusterIPs:
+    - 172.30.71.138
+    ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 8012
+    - name: http-autometric
+      port: 9090
+      protocol: TCP
+      targetPort: http-autometric
+    - name: http-usermetric
+      port: 9091
+      protocol: TCP
+      targetPort: http-usermetric
+    - name: http-queueadm
+      port: 8022
+      protocol: TCP
+      targetPort: 8022
+    selector:
+      serving.knative.dev/revisionUID: 7b0dbb7e-3052-4a5f-be9f-566c42182f1d
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      template.openshift.io/expose-uri: mongodb://{.spec.clusterIP}:{.spec.ports[?(.name=="mongo")].port}
+    creationTimestamp: "2021-04-26T09:08:40Z"
+    labels:
+      template: mongodb-persistent-template
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:template.openshift.io/expose-uri: {}
+          f:labels:
+            .: {}
+            f:template: {}
+        f:spec:
+          f:ports:
+            .: {}
+            k:{"port":27017,"protocol":"TCP"}:
+              .: {}
+              f:name: {}
+              f:port: {}
+              f:protocol: {}
+              f:targetPort: {}
+          f:selector:
+            .: {}
+            f:name: {}
+          f:sessionAffinity: {}
+          f:type: {}
+      manager: oc
+      operation: Update
+      time: "2021-04-26T09:08:40Z"
+    name: mongodb
+    namespace: companies-catalog
+    resourceVersion: "7179082"
+    selfLink: /api/v1/namespaces/companies-catalog/services/mongodb
+    uid: 469b9367-0c99-4fdb-85f5-1277a6d1e24c
+  spec:
+    clusterIP: 172.30.214.34
+    clusterIPs:
+    - 172.30.214.34
+    ports:
+    - name: mongo
+      port: 27017
+      protocol: TCP
+      targetPort: 27017
+    selector:
+      name: mongodb
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      autoscaling.knative.dev/minScale: "1"
+      autoscaling.knative.dev/target: "10"
+      deployment.kubernetes.io/revision: "1"
+      serving.knative.dev/creator: opentlc-mgr
+      sidecar.istio.io/inject: "false"
+    creationTimestamp: "2021-04-26T09:14:15Z"
+    generation: 1
+    labels:
+      app: companies-svc-v1
+      serving.knative.dev/configuration: companies-svc
+      serving.knative.dev/configurationGeneration: "1"
+      serving.knative.dev/revision: companies-svc-v1
+      serving.knative.dev/revisionUID: 7b0dbb7e-3052-4a5f-be9f-566c42182f1d
+      serving.knative.dev/service: companies-svc
+    managedFields:
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:autoscaling.knative.dev/minScale: {}
+            f:autoscaling.knative.dev/target: {}
+            f:serving.knative.dev/creator: {}
+            f:sidecar.istio.io/inject: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:serving.knative.dev/configuration: {}
+            f:serving.knative.dev/configurationGeneration: {}
+            f:serving.knative.dev/revision: {}
+            f:serving.knative.dev/revisionUID: {}
+            f:serving.knative.dev/service: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"7b0dbb7e-3052-4a5f-be9f-566c42182f1d"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:progressDeadlineSeconds: {}
+          f:replicas: {}
+          f:revisionHistoryLimit: {}
+          f:selector: {}
+          f:strategy:
+            f:rollingUpdate:
+              .: {}
+              f:maxSurge: {}
+              f:maxUnavailable: {}
+            f:type: {}
+          f:template:
+            f:metadata:
+              f:annotations:
+                .: {}
+                f:autoscaling.knative.dev/minScale: {}
+                f:autoscaling.knative.dev/target: {}
+                f:serving.knative.dev/creator: {}
+                f:sidecar.istio.io/inject: {}
+              f:labels:
+                .: {}
+                f:app: {}
+                f:serving.knative.dev/configuration: {}
+                f:serving.knative.dev/configurationGeneration: {}
+                f:serving.knative.dev/revision: {}
+                f:serving.knative.dev/revisionUID: {}
+                f:serving.knative.dev/service: {}
+            f:spec:
+              f:containers:
+                k:{"name":"queue-proxy"}:
+                  .: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"CONTAINER_CONCURRENCY"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"ENABLE_PROFILING"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"METRICS_COLLECTOR_ADDRESS"}:
+                      .: {}
+                      f:name: {}
+                    k:{"name":"METRICS_DOMAIN"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"QUEUE_SERVING_PORT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"REVISION_TIMEOUT_SECONDS"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"SERVING_CONFIGURATION"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"SERVING_ENABLE_PROBE_REQUEST_LOG"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"SERVING_ENABLE_REQUEST_LOG"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"SERVING_LOGGING_CONFIG"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"SERVING_LOGGING_LEVEL"}:
+                      .: {}
+                      f:name: {}
+                    k:{"name":"SERVING_NAMESPACE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"SERVING_POD"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:fieldRef:
+                          .: {}
+                          f:apiVersion: {}
+                          f:fieldPath: {}
+                    k:{"name":"SERVING_POD_IP"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:fieldRef:
+                          .: {}
+                          f:apiVersion: {}
+                          f:fieldPath: {}
+                    k:{"name":"SERVING_READINESS_PROBE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"SERVING_REQUEST_LOG_TEMPLATE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"SERVING_REQUEST_METRICS_BACKEND"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"SERVING_REVISION"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"SERVING_SERVICE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"SYSTEM_NAMESPACE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"TRACING_CONFIG_BACKEND"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"TRACING_CONFIG_DEBUG"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"TRACING_CONFIG_SAMPLE_RATE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"TRACING_CONFIG_STACKDRIVER_PROJECT_ID"}:
+                      .: {}
+                      f:name: {}
+                    k:{"name":"TRACING_CONFIG_ZIPKIN_ENDPOINT"}:
+                      .: {}
+                      f:name: {}
+                    k:{"name":"USER_PORT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:ports:
+                    .: {}
+                    k:{"containerPort":8012,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:name: {}
+                      f:protocol: {}
+                    k:{"containerPort":8022,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:name: {}
+                      f:protocol: {}
+                    k:{"containerPort":9090,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:name: {}
+                      f:protocol: {}
+                    k:{"containerPort":9091,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:name: {}
+                      f:protocol: {}
+                  f:readinessProbe:
+                    .: {}
+                    f:exec:
+                      .: {}
+                      f:command: {}
+                    f:failureThreshold: {}
+                    f:periodSeconds: {}
+                    f:successThreshold: {}
+                    f:timeoutSeconds: {}
+                  f:resources:
+                    .: {}
+                    f:requests:
+                      .: {}
+                      f:cpu: {}
+                  f:securityContext:
+                    .: {}
+                    f:allowPrivilegeEscalation: {}
+                    f:capabilities:
+                      .: {}
+                      f:drop: {}
+                    f:readOnlyRootFilesystem: {}
+                    f:runAsNonRoot: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                k:{"name":"user-container"}:
+                  .: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"JAVA_OPTS"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"K_CONFIGURATION"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"K_REVISION"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"K_SERVICE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"MONGODB_CONNECTION_STRING"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"PORT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:lifecycle:
+                    .: {}
+                    f:preStop:
+                      .: {}
+                      f:httpGet:
+                        .: {}
+                        f:path: {}
+                        f:port: {}
+                        f:scheme: {}
+                  f:name: {}
+                  f:ports:
+                    .: {}
+                    k:{"containerPort":8080,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:name: {}
+                      f:protocol: {}
+                  f:resources: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+              f:dnsPolicy: {}
+              f:enableServiceLinks: {}
+              f:imagePullSecrets:
+                .: {}
+                k:{"name":"quay-secret"}:
+                  .: {}
+                  f:name: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext: {}
+              f:terminationGracePeriodSeconds: {}
+      manager: controller
+      operation: Update
+      time: "2021-04-26T09:14:15Z"
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:deployment.kubernetes.io/revision: {}
+        f:status:
+          f:availableReplicas: {}
+          f:conditions:
+            .: {}
+            k:{"type":"Available"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Progressing"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:observedGeneration: {}
+          f:readyReplicas: {}
+          f:replicas: {}
+          f:updatedReplicas: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2021-04-26T09:14:23Z"
+    name: companies-svc-v1-deployment
+    namespace: companies-catalog
+    ownerReferences:
+    - apiVersion: serving.knative.dev/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Revision
+      name: companies-svc-v1
+      uid: 7b0dbb7e-3052-4a5f-be9f-566c42182f1d
+    resourceVersion: "7190801"
+    selfLink: /apis/apps/v1/namespaces/companies-catalog/deployments/companies-svc-v1-deployment
+    uid: 182df908-866c-4519-ac0b-4291e44d8ddd
+  spec:
+    progressDeadlineSeconds: 120
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        serving.knative.dev/revisionUID: 7b0dbb7e-3052-4a5f-be9f-566c42182f1d
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          autoscaling.knative.dev/minScale: "1"
+          autoscaling.knative.dev/target: "10"
+          serving.knative.dev/creator: opentlc-mgr
+          sidecar.istio.io/inject: "false"
+        creationTimestamp: null
+        labels:
+          app: companies-svc-v1
+          serving.knative.dev/configuration: companies-svc
+          serving.knative.dev/configurationGeneration: "1"
+          serving.knative.dev/revision: companies-svc-v1
+          serving.knative.dev/revisionUID: 7b0dbb7e-3052-4a5f-be9f-566c42182f1d
+          serving.knative.dev/service: companies-svc
+      spec:
+        containers:
+        - env:
+          - name: JAVA_OPTS
+            value: -Dvertx.cacheDirBase=/work/vertx
+          - name: MONGODB_CONNECTION_STRING
+            value: mongodb://admcomp:r3dh4t2021!@mongodb:27017/companies
+          - name: PORT
+            value: "8080"
+          - name: K_REVISION
+            value: companies-svc-v1
+          - name: K_CONFIGURATION
+            value: companies-svc
+          - name: K_SERVICE
+            value: companies-svc
+          image: quay.io/mouachan/companies-svc@sha256:961316429caba6900ac140f737db28d8a71b7fba318ad80891c86eae79578eac
+          imagePullPolicy: IfNotPresent
+          lifecycle:
+            preStop:
+              httpGet:
+                path: /wait-for-drain
+                port: 8022
+                scheme: HTTP
+          name: user-container
+          ports:
+          - containerPort: 8080
+            name: user-port
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: FallbackToLogsOnError
+        - env:
+          - name: SERVING_NAMESPACE
+            value: companies-catalog
+          - name: SERVING_SERVICE
+            value: companies-svc
+          - name: SERVING_CONFIGURATION
+            value: companies-svc
+          - name: SERVING_REVISION
+            value: companies-svc-v1
+          - name: QUEUE_SERVING_PORT
+            value: "8012"
+          - name: CONTAINER_CONCURRENCY
+            value: "0"
+          - name: REVISION_TIMEOUT_SECONDS
+            value: "300"
+          - name: SERVING_POD
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: SERVING_POD_IP
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: status.podIP
+          - name: SERVING_LOGGING_CONFIG
+            value: |-
+              {
+                "level": "info",
+                "development": false,
+                "outputPaths": ["stdout"],
+                "errorOutputPaths": ["stderr"],
+                "encoding": "json",
+                "encoderConfig": {
+                  "timeKey": "ts",
+                  "levelKey": "level",
+                  "nameKey": "logger",
+                  "callerKey": "caller",
+                  "messageKey": "msg",
+                  "stacktraceKey": "stacktrace",
+                  "lineEnding": "",
+                  "levelEncoder": "",
+                  "timeEncoder": "iso8601",
+                  "durationEncoder": "",
+                  "callerEncoder": ""
+                }
+              }
+          - name: SERVING_LOGGING_LEVEL
+          - name: SERVING_REQUEST_LOG_TEMPLATE
+            value: '{"httpRequest": {"requestMethod": "{{.Request.Method}}", "requestUrl":
+              "{{js .Request.RequestURI}}", "requestSize": "{{.Request.ContentLength}}",
+              "status": {{.Response.Code}}, "responseSize": "{{.Response.Size}}",
+              "userAgent": "{{js .Request.UserAgent}}", "remoteIp": "{{js .Request.RemoteAddr}}",
+              "serverIp": "{{.Revision.PodIP}}", "referer": "{{js .Request.Referer}}",
+              "latency": "{{.Response.Latency}}s", "protocol": "{{.Request.Proto}}"},
+              "traceId": "{{index .Request.Header "X-B3-Traceid"}}"}'
+          - name: SERVING_ENABLE_REQUEST_LOG
+            value: "false"
+          - name: SERVING_REQUEST_METRICS_BACKEND
+            value: prometheus
+          - name: TRACING_CONFIG_BACKEND
+            value: none
+          - name: TRACING_CONFIG_ZIPKIN_ENDPOINT
+          - name: TRACING_CONFIG_STACKDRIVER_PROJECT_ID
+          - name: TRACING_CONFIG_DEBUG
+            value: "false"
+          - name: TRACING_CONFIG_SAMPLE_RATE
+            value: "0.1"
+          - name: USER_PORT
+            value: "8080"
+          - name: SYSTEM_NAMESPACE
+            value: knative-serving
+          - name: METRICS_DOMAIN
+            value: knative.dev/internal/serving
+          - name: SERVING_READINESS_PROBE
+            value: '{"tcpSocket":{"port":8080,"host":"127.0.0.1"},"successThreshold":1}'
+          - name: ENABLE_PROFILING
+            value: "false"
+          - name: SERVING_ENABLE_PROBE_REQUEST_LOG
+            value: "false"
+          - name: METRICS_COLLECTOR_ADDRESS
+          image: registry.redhat.io/openshift-serverless-1/serving-queue-rhel8@sha256:b6239db9181d52c5f0fbfc5f59ac5da2a8fbdff3a57d326076d4da19d8135d07
+          imagePullPolicy: IfNotPresent
+          name: queue-proxy
+          ports:
+          - containerPort: 8022
+            name: http-queueadm
+            protocol: TCP
+          - containerPort: 9090
+            name: http-autometric
+            protocol: TCP
+          - containerPort: 9091
+            name: http-usermetric
+            protocol: TCP
+          - containerPort: 8012
+            name: queue-port
+            protocol: TCP
+          readinessProbe:
+            exec:
+              command:
+              - /ko-app/queue
+              - -probe-period
+              - "0"
+            failureThreshold: 3
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 10
+          resources:
+            requests:
+              cpu: 25m
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - all
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        enableServiceLinks: false
+        imagePullSecrets:
+        - name: quay-secret
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 300
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2021-04-26T09:14:23Z"
+      lastUpdateTime: "2021-04-26T09:14:23Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2021-04-26T09:14:15Z"
+      lastUpdateTime: "2021-04-26T09:14:23Z"
+      message: ReplicaSet "companies-svc-v1-deployment-f8454f7d7" has successfully
+        progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      autoscaling.knative.dev/minScale: "1"
+      autoscaling.knative.dev/target: "10"
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+      serving.knative.dev/creator: opentlc-mgr
+      sidecar.istio.io/inject: "false"
+    creationTimestamp: "2021-04-26T09:14:15Z"
+    generation: 1
+    labels:
+      app: companies-svc-v1
+      pod-template-hash: f8454f7d7
+      serving.knative.dev/configuration: companies-svc
+      serving.knative.dev/configurationGeneration: "1"
+      serving.knative.dev/revision: companies-svc-v1
+      serving.knative.dev/revisionUID: 7b0dbb7e-3052-4a5f-be9f-566c42182f1d
+      serving.knative.dev/service: companies-svc
+    managedFields:
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:autoscaling.knative.dev/minScale: {}
+            f:autoscaling.knative.dev/target: {}
+            f:deployment.kubernetes.io/desired-replicas: {}
+            f:deployment.kubernetes.io/max-replicas: {}
+            f:deployment.kubernetes.io/revision: {}
+            f:serving.knative.dev/creator: {}
+            f:sidecar.istio.io/inject: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:pod-template-hash: {}
+            f:serving.knative.dev/configuration: {}
+            f:serving.knative.dev/configurationGeneration: {}
+            f:serving.knative.dev/revision: {}
+            f:serving.knative.dev/revisionUID: {}
+            f:serving.knative.dev/service: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"182df908-866c-4519-ac0b-4291e44d8ddd"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:replicas: {}
+          f:selector: {}
+          f:template:
+            f:metadata:
+              f:annotations:
+                .: {}
+                f:autoscaling.knative.dev/minScale: {}
+                f:autoscaling.knative.dev/target: {}
+                f:serving.knative.dev/creator: {}
+                f:sidecar.istio.io/inject: {}
+              f:labels:
+                .: {}
+                f:app: {}
+                f:pod-template-hash: {}
+                f:serving.knative.dev/configuration: {}
+                f:serving.knative.dev/configurationGeneration: {}
+                f:serving.knative.dev/revision: {}
+                f:serving.knative.dev/revisionUID: {}
+                f:serving.knative.dev/service: {}
+            f:spec:
+              f:containers:
+                k:{"name":"queue-proxy"}:
+                  .: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"CONTAINER_CONCURRENCY"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"ENABLE_PROFILING"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"METRICS_COLLECTOR_ADDRESS"}:
+                      .: {}
+                      f:name: {}
+                    k:{"name":"METRICS_DOMAIN"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"QUEUE_SERVING_PORT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"REVISION_TIMEOUT_SECONDS"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"SERVING_CONFIGURATION"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"SERVING_ENABLE_PROBE_REQUEST_LOG"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"SERVING_ENABLE_REQUEST_LOG"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"SERVING_LOGGING_CONFIG"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"SERVING_LOGGING_LEVEL"}:
+                      .: {}
+                      f:name: {}
+                    k:{"name":"SERVING_NAMESPACE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"SERVING_POD"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:fieldRef:
+                          .: {}
+                          f:apiVersion: {}
+                          f:fieldPath: {}
+                    k:{"name":"SERVING_POD_IP"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:fieldRef:
+                          .: {}
+                          f:apiVersion: {}
+                          f:fieldPath: {}
+                    k:{"name":"SERVING_READINESS_PROBE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"SERVING_REQUEST_LOG_TEMPLATE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"SERVING_REQUEST_METRICS_BACKEND"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"SERVING_REVISION"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"SERVING_SERVICE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"SYSTEM_NAMESPACE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"TRACING_CONFIG_BACKEND"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"TRACING_CONFIG_DEBUG"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"TRACING_CONFIG_SAMPLE_RATE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"TRACING_CONFIG_STACKDRIVER_PROJECT_ID"}:
+                      .: {}
+                      f:name: {}
+                    k:{"name":"TRACING_CONFIG_ZIPKIN_ENDPOINT"}:
+                      .: {}
+                      f:name: {}
+                    k:{"name":"USER_PORT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:ports:
+                    .: {}
+                    k:{"containerPort":8012,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:name: {}
+                      f:protocol: {}
+                    k:{"containerPort":8022,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:name: {}
+                      f:protocol: {}
+                    k:{"containerPort":9090,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:name: {}
+                      f:protocol: {}
+                    k:{"containerPort":9091,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:name: {}
+                      f:protocol: {}
+                  f:readinessProbe:
+                    .: {}
+                    f:exec:
+                      .: {}
+                      f:command: {}
+                    f:failureThreshold: {}
+                    f:periodSeconds: {}
+                    f:successThreshold: {}
+                    f:timeoutSeconds: {}
+                  f:resources:
+                    .: {}
+                    f:requests:
+                      .: {}
+                      f:cpu: {}
+                  f:securityContext:
+                    .: {}
+                    f:allowPrivilegeEscalation: {}
+                    f:capabilities:
+                      .: {}
+                      f:drop: {}
+                    f:readOnlyRootFilesystem: {}
+                    f:runAsNonRoot: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                k:{"name":"user-container"}:
+                  .: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"JAVA_OPTS"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"K_CONFIGURATION"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"K_REVISION"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"K_SERVICE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"MONGODB_CONNECTION_STRING"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"PORT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:lifecycle:
+                    .: {}
+                    f:preStop:
+                      .: {}
+                      f:httpGet:
+                        .: {}
+                        f:path: {}
+                        f:port: {}
+                        f:scheme: {}
+                  f:name: {}
+                  f:ports:
+                    .: {}
+                    k:{"containerPort":8080,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:name: {}
+                      f:protocol: {}
+                  f:resources: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+              f:dnsPolicy: {}
+              f:enableServiceLinks: {}
+              f:imagePullSecrets:
+                .: {}
+                k:{"name":"quay-secret"}:
+                  .: {}
+                  f:name: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext: {}
+              f:terminationGracePeriodSeconds: {}
+        f:status:
+          f:availableReplicas: {}
+          f:fullyLabeledReplicas: {}
+          f:observedGeneration: {}
+          f:readyReplicas: {}
+          f:replicas: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2021-04-26T09:14:23Z"
+    name: companies-svc-v1-deployment-f8454f7d7
+    namespace: companies-catalog
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: companies-svc-v1-deployment
+      uid: 182df908-866c-4519-ac0b-4291e44d8ddd
+    resourceVersion: "7190799"
+    selfLink: /apis/apps/v1/namespaces/companies-catalog/replicasets/companies-svc-v1-deployment-f8454f7d7
+    uid: a9040921-6e49-47bd-9d69-c27da1f8a1bd
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        pod-template-hash: f8454f7d7
+        serving.knative.dev/revisionUID: 7b0dbb7e-3052-4a5f-be9f-566c42182f1d
+    template:
+      metadata:
+        annotations:
+          autoscaling.knative.dev/minScale: "1"
+          autoscaling.knative.dev/target: "10"
+          serving.knative.dev/creator: opentlc-mgr
+          sidecar.istio.io/inject: "false"
+        creationTimestamp: null
+        labels:
+          app: companies-svc-v1
+          pod-template-hash: f8454f7d7
+          serving.knative.dev/configuration: companies-svc
+          serving.knative.dev/configurationGeneration: "1"
+          serving.knative.dev/revision: companies-svc-v1
+          serving.knative.dev/revisionUID: 7b0dbb7e-3052-4a5f-be9f-566c42182f1d
+          serving.knative.dev/service: companies-svc
+      spec:
+        containers:
+        - env:
+          - name: JAVA_OPTS
+            value: -Dvertx.cacheDirBase=/work/vertx
+          - name: MONGODB_CONNECTION_STRING
+            value: mongodb://admcomp:r3dh4t2021!@mongodb:27017/companies
+          - name: PORT
+            value: "8080"
+          - name: K_REVISION
+            value: companies-svc-v1
+          - name: K_CONFIGURATION
+            value: companies-svc
+          - name: K_SERVICE
+            value: companies-svc
+          image: quay.io/mouachan/companies-svc@sha256:961316429caba6900ac140f737db28d8a71b7fba318ad80891c86eae79578eac
+          imagePullPolicy: IfNotPresent
+          lifecycle:
+            preStop:
+              httpGet:
+                path: /wait-for-drain
+                port: 8022
+                scheme: HTTP
+          name: user-container
+          ports:
+          - containerPort: 8080
+            name: user-port
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: FallbackToLogsOnError
+        - env:
+          - name: SERVING_NAMESPACE
+            value: companies-catalog
+          - name: SERVING_SERVICE
+            value: companies-svc
+          - name: SERVING_CONFIGURATION
+            value: companies-svc
+          - name: SERVING_REVISION
+            value: companies-svc-v1
+          - name: QUEUE_SERVING_PORT
+            value: "8012"
+          - name: CONTAINER_CONCURRENCY
+            value: "0"
+          - name: REVISION_TIMEOUT_SECONDS
+            value: "300"
+          - name: SERVING_POD
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: SERVING_POD_IP
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: status.podIP
+          - name: SERVING_LOGGING_CONFIG
+            value: |-
+              {
+                "level": "info",
+                "development": false,
+                "outputPaths": ["stdout"],
+                "errorOutputPaths": ["stderr"],
+                "encoding": "json",
+                "encoderConfig": {
+                  "timeKey": "ts",
+                  "levelKey": "level",
+                  "nameKey": "logger",
+                  "callerKey": "caller",
+                  "messageKey": "msg",
+                  "stacktraceKey": "stacktrace",
+                  "lineEnding": "",
+                  "levelEncoder": "",
+                  "timeEncoder": "iso8601",
+                  "durationEncoder": "",
+                  "callerEncoder": ""
+                }
+              }
+          - name: SERVING_LOGGING_LEVEL
+          - name: SERVING_REQUEST_LOG_TEMPLATE
+            value: '{"httpRequest": {"requestMethod": "{{.Request.Method}}", "requestUrl":
+              "{{js .Request.RequestURI}}", "requestSize": "{{.Request.ContentLength}}",
+              "status": {{.Response.Code}}, "responseSize": "{{.Response.Size}}",
+              "userAgent": "{{js .Request.UserAgent}}", "remoteIp": "{{js .Request.RemoteAddr}}",
+              "serverIp": "{{.Revision.PodIP}}", "referer": "{{js .Request.Referer}}",
+              "latency": "{{.Response.Latency}}s", "protocol": "{{.Request.Proto}}"},
+              "traceId": "{{index .Request.Header "X-B3-Traceid"}}"}'
+          - name: SERVING_ENABLE_REQUEST_LOG
+            value: "false"
+          - name: SERVING_REQUEST_METRICS_BACKEND
+            value: prometheus
+          - name: TRACING_CONFIG_BACKEND
+            value: none
+          - name: TRACING_CONFIG_ZIPKIN_ENDPOINT
+          - name: TRACING_CONFIG_STACKDRIVER_PROJECT_ID
+          - name: TRACING_CONFIG_DEBUG
+            value: "false"
+          - name: TRACING_CONFIG_SAMPLE_RATE
+            value: "0.1"
+          - name: USER_PORT
+            value: "8080"
+          - name: SYSTEM_NAMESPACE
+            value: knative-serving
+          - name: METRICS_DOMAIN
+            value: knative.dev/internal/serving
+          - name: SERVING_READINESS_PROBE
+            value: '{"tcpSocket":{"port":8080,"host":"127.0.0.1"},"successThreshold":1}'
+          - name: ENABLE_PROFILING
+            value: "false"
+          - name: SERVING_ENABLE_PROBE_REQUEST_LOG
+            value: "false"
+          - name: METRICS_COLLECTOR_ADDRESS
+          image: registry.redhat.io/openshift-serverless-1/serving-queue-rhel8@sha256:b6239db9181d52c5f0fbfc5f59ac5da2a8fbdff3a57d326076d4da19d8135d07
+          imagePullPolicy: IfNotPresent
+          name: queue-proxy
+          ports:
+          - containerPort: 8022
+            name: http-queueadm
+            protocol: TCP
+          - containerPort: 9090
+            name: http-autometric
+            protocol: TCP
+          - containerPort: 9091
+            name: http-usermetric
+            protocol: TCP
+          - containerPort: 8012
+            name: queue-port
+            protocol: TCP
+          readinessProbe:
+            exec:
+              command:
+              - /ko-app/queue
+              - -probe-period
+              - "0"
+            failureThreshold: 3
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 10
+          resources:
+            requests:
+              cpu: 25m
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - all
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        enableServiceLinks: false
+        imagePullSecrets:
+        - name: quay-secret
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 300
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+- apiVersion: apps.openshift.io/v1
+  kind: DeploymentConfig
+  metadata:
+    annotations:
+      template.alpha.openshift.io/wait-for-ready: "true"
+    creationTimestamp: "2021-04-26T09:08:40Z"
+    generation: 2
+    labels:
+      template: mongodb-persistent-template
+    managedFields:
+    - apiVersion: apps.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:template.alpha.openshift.io/wait-for-ready: {}
+          f:labels:
+            .: {}
+            f:template: {}
+        f:spec:
+          f:replicas: {}
+          f:selector:
+            .: {}
+            f:name: {}
+          f:strategy:
+            f:activeDeadlineSeconds: {}
+            f:recreateParams:
+              .: {}
+              f:timeoutSeconds: {}
+            f:type: {}
+          f:template:
+            .: {}
+            f:metadata:
+              .: {}
+              f:creationTimestamp: {}
+              f:labels:
+                .: {}
+                f:name: {}
+            f:spec:
+              .: {}
+              f:containers:
+                .: {}
+                k:{"name":"mongodb"}:
+                  .: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"MONGODB_ADMIN_PASSWORD"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:secretKeyRef:
+                          .: {}
+                          f:key: {}
+                          f:name: {}
+                    k:{"name":"MONGODB_DATABASE"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:secretKeyRef:
+                          .: {}
+                          f:key: {}
+                          f:name: {}
+                    k:{"name":"MONGODB_PASSWORD"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:secretKeyRef:
+                          .: {}
+                          f:key: {}
+                          f:name: {}
+                    k:{"name":"MONGODB_USER"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:secretKeyRef:
+                          .: {}
+                          f:key: {}
+                          f:name: {}
+                  f:imagePullPolicy: {}
+                  f:livenessProbe:
+                    .: {}
+                    f:failureThreshold: {}
+                    f:initialDelaySeconds: {}
+                    f:periodSeconds: {}
+                    f:successThreshold: {}
+                    f:tcpSocket:
+                      .: {}
+                      f:port: {}
+                    f:timeoutSeconds: {}
+                  f:name: {}
+                  f:ports:
+                    .: {}
+                    k:{"containerPort":27017,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:protocol: {}
+                  f:readinessProbe:
+                    .: {}
+                    f:exec:
+                      .: {}
+                      f:command: {}
+                    f:failureThreshold: {}
+                    f:initialDelaySeconds: {}
+                    f:periodSeconds: {}
+                    f:successThreshold: {}
+                    f:timeoutSeconds: {}
+                  f:resources:
+                    .: {}
+                    f:limits:
+                      .: {}
+                      f:memory: {}
+                  f:securityContext:
+                    .: {}
+                    f:capabilities: {}
+                    f:privileged: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/var/lib/mongodb/data"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:dnsPolicy: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext: {}
+              f:terminationGracePeriodSeconds: {}
+              f:volumes:
+                .: {}
+                k:{"name":"mongodb-data"}:
+                  .: {}
+                  f:name: {}
+                  f:persistentVolumeClaim:
+                    .: {}
+                    f:claimName: {}
+      manager: oc
+      operation: Update
+      time: "2021-04-26T09:08:40Z"
+    - apiVersion: apps.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:template:
+            f:spec:
+              f:containers:
+                k:{"name":"mongodb"}:
+                  f:image: {}
+          f:triggers: {}
+        f:status:
+          f:availableReplicas: {}
+          f:conditions:
+            .: {}
+            k:{"type":"Available"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Progressing"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:details:
+            .: {}
+            f:causes: {}
+            f:message: {}
+          f:latestVersion: {}
+          f:observedGeneration: {}
+          f:readyReplicas: {}
+          f:replicas: {}
+          f:unavailableReplicas: {}
+          f:updatedReplicas: {}
+      manager: openshift-controller-manager
+      operation: Update
+      time: "2021-04-26T09:09:35Z"
+    name: mongodb
+    namespace: companies-catalog
+    resourceVersion: "7181009"
+    uid: 55bea1c4-799b-4b8f-b949-bf58800abdae
+  spec:
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      name: mongodb
+    strategy:
+      activeDeadlineSeconds: 21600
+      recreateParams:
+        timeoutSeconds: 600
+      resources: {}
+      type: Recreate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          name: mongodb
+      spec:
+        containers:
+        - env:
+          - name: MONGODB_USER
+            valueFrom:
+              secretKeyRef:
+                key: database-user
+                name: mongodb
+          - name: MONGODB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: database-password
+                name: mongodb
+          - name: MONGODB_ADMIN_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: database-admin-password
+                name: mongodb
+          - name: MONGODB_DATABASE
+            valueFrom:
+              secretKeyRef:
+                key: database-name
+                name: mongodb
+          image: image-registry.openshift-image-registry.svc:5000/openshift/mongodb@sha256:5cd49903c19bb2fd2004b9d70f0af0386c1ec784aa63e91ec13f7ee472230770
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            tcpSocket:
+              port: 27017
+            timeoutSeconds: 1
+          name: mongodb
+          ports:
+          - containerPort: 27017
+            protocol: TCP
+          readinessProbe:
+            exec:
+              command:
+              - /bin/sh
+              - -i
+              - -c
+              - mongo 127.0.0.1:27017/$MONGODB_DATABASE -u $MONGODB_USER -p $MONGODB_PASSWORD
+                --eval="quit()"
+            failureThreshold: 3
+            initialDelaySeconds: 3
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              memory: 512Mi
+          securityContext:
+            capabilities: {}
+            privileged: false
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /var/lib/mongodb/data
+            name: mongodb-data
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - name: mongodb-data
+          persistentVolumeClaim:
+            claimName: mongodb
+    test: false
+    triggers:
+    - imageChangeParams:
+        automatic: true
+        containerNames:
+        - mongodb
+        from:
+          kind: ImageStreamTag
+          name: mongodb:3.6
+          namespace: openshift
+        lastTriggeredImage: image-registry.openshift-image-registry.svc:5000/openshift/mongodb@sha256:5cd49903c19bb2fd2004b9d70f0af0386c1ec784aa63e91ec13f7ee472230770
+      type: ImageChange
+    - type: ConfigChange
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2021-04-26T09:09:35Z"
+      lastUpdateTime: "2021-04-26T09:09:35Z"
+      message: Deployment config has minimum availability.
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2021-04-26T09:08:45Z"
+      lastUpdateTime: "2021-04-26T09:09:35Z"
+      message: replication controller "mongodb-1" successfully rolled out
+      reason: NewReplicationControllerAvailable
+      status: "True"
+      type: Progressing
+    details:
+      causes:
+      - type: ConfigChange
+      message: config change
+    latestVersion: 1
+    observedGeneration: 2
+    readyReplicas: 1
+    replicas: 1
+    unavailableReplicas: 0
+    updatedReplicas: 1
+- apiVersion: serving.knative.dev/v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"serving.knative.dev/v1","kind":"Service","metadata":{"annotations":{},"name":"companies-svc","namespace":"companies-catalog"},"spec":{"template":{"metadata":{"annotations":{"autoscaling.knative.dev/minScale":"1","autoscaling.knative.dev/target":"10","sidecar.istio.io/inject":"false"},"name":"companies-svc-v1"},"spec":{"containers":[{"env":[{"name":"JAVA_OPTS","value":"-Dvertx.cacheDirBase=/work/vertx"},{"name":"MONGODB_CONNECTION_STRING","value":"mongodb://admcomp:r3dh4t2021!@mongodb:27017/companies"}],"image":"quay.io/mouachan/companies-svc:1.0"}],"imagePullSecrets":[{"name":"quay-secret"}]}}}}
+      serving.knative.dev/creator: opentlc-mgr
+      serving.knative.dev/lastModifier: opentlc-mgr
+    creationTimestamp: "2021-04-26T09:14:14Z"
+    generation: 1
+    managedFields:
+    - apiVersion: serving.knative.dev/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubectl.kubernetes.io/last-applied-configuration: {}
+        f:spec:
+          .: {}
+          f:template:
+            .: {}
+            f:metadata:
+              .: {}
+              f:annotations:
+                .: {}
+                f:autoscaling.knative.dev/minScale: {}
+                f:autoscaling.knative.dev/target: {}
+                f:sidecar.istio.io/inject: {}
+              f:name: {}
+            f:spec:
+              .: {}
+              f:containers: {}
+              f:imagePullSecrets: {}
+      manager: oc
+      operation: Update
+      time: "2021-04-26T09:14:14Z"
+    - apiVersion: serving.knative.dev/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:address:
+            .: {}
+            f:url: {}
+          f:conditions: {}
+          f:latestCreatedRevisionName: {}
+          f:latestReadyRevisionName: {}
+          f:observedGeneration: {}
+          f:traffic: {}
+          f:url: {}
+      manager: controller
+      operation: Update
+      time: "2021-04-26T09:14:23Z"
+    name: companies-svc
+    namespace: companies-catalog
+    resourceVersion: "7190846"
+    selfLink: /apis/serving.knative.dev/v1/namespaces/companies-catalog/services/companies-svc
+    uid: 46c38b79-21c7-4fc7-bca0-e5c34834f54c
+  spec:
+    template:
+      metadata:
+        annotations:
+          autoscaling.knative.dev/minScale: "1"
+          autoscaling.knative.dev/target: "10"
+          sidecar.istio.io/inject: "false"
+        creationTimestamp: null
+        name: companies-svc-v1
+      spec:
+        containerConcurrency: 0
+        containers:
+        - env:
+          - name: JAVA_OPTS
+            value: -Dvertx.cacheDirBase=/work/vertx
+          - name: MONGODB_CONNECTION_STRING
+            value: mongodb://admcomp:r3dh4t2021!@mongodb:27017/companies
+          image: quay.io/mouachan/companies-svc:1.0
+          name: user-container
+          readinessProbe:
+            successThreshold: 1
+            tcpSocket:
+              port: 0
+          resources: {}
+        enableServiceLinks: false
+        imagePullSecrets:
+        - name: quay-secret
+        timeoutSeconds: 300
+    traffic:
+    - latestRevision: true
+      percent: 100
+  status:
+    address:
+      url: http://companies-svc.companies-catalog.svc.cluster.local
+    conditions:
+    - lastTransitionTime: "2021-04-26T09:14:23Z"
+      status: "True"
+      type: ConfigurationsReady
+    - lastTransitionTime: "2021-04-26T09:14:24Z"
+      status: "True"
+      type: Ready
+    - lastTransitionTime: "2021-04-26T09:14:24Z"
+      status: "True"
+      type: RoutesReady
+    latestCreatedRevisionName: companies-svc-v1
+    latestReadyRevisionName: companies-svc-v1
+    observedGeneration: 1
+    traffic:
+    - latestRevision: true
+      percent: 100
+      revisionName: companies-svc-v1
+    url: http://companies-svc-companies-catalog.apps.cluster-c0fb.c0fb.sandbox1751.opentlc.com
+- apiVersion: serving.knative.dev/v1
+  kind: Revision
+  metadata:
+    annotations:
+      autoscaling.knative.dev/minScale: "1"
+      autoscaling.knative.dev/target: "10"
+      serving.knative.dev/creator: opentlc-mgr
+      serving.knative.dev/routes: companies-svc
+      serving.knative.dev/routingStateModified: "2021-04-26T09:14:15Z"
+      sidecar.istio.io/inject: "false"
+    creationTimestamp: "2021-04-26T09:14:15Z"
+    generation: 1
+    labels:
+      serving.knative.dev/configuration: companies-svc
+      serving.knative.dev/configurationGeneration: "1"
+      serving.knative.dev/routingState: active
+      serving.knative.dev/service: companies-svc
+    managedFields:
+    - apiVersion: serving.knative.dev/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:autoscaling.knative.dev/minScale: {}
+            f:autoscaling.knative.dev/target: {}
+            f:serving.knative.dev/creator: {}
+            f:serving.knative.dev/routes: {}
+            f:serving.knative.dev/routingStateModified: {}
+            f:sidecar.istio.io/inject: {}
+          f:labels:
+            .: {}
+            f:serving.knative.dev/configuration: {}
+            f:serving.knative.dev/configurationGeneration: {}
+            f:serving.knative.dev/routingState: {}
+            f:serving.knative.dev/service: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"20b4ce5b-3263-4240-bf67-5a26915aab56"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          .: {}
+          f:containerConcurrency: {}
+          f:containers: {}
+          f:enableServiceLinks: {}
+          f:imagePullSecrets: {}
+          f:timeoutSeconds: {}
+        f:status:
+          .: {}
+          f:conditions: {}
+          f:containerStatuses: {}
+          f:imageDigest: {}
+          f:observedGeneration: {}
+          f:serviceName: {}
+      manager: controller
+      operation: Update
+      time: "2021-04-26T09:14:15Z"
+    name: companies-svc-v1
+    namespace: companies-catalog
+    ownerReferences:
+    - apiVersion: serving.knative.dev/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Configuration
+      name: companies-svc
+      uid: 20b4ce5b-3263-4240-bf67-5a26915aab56
+    resourceVersion: "7190892"
+    selfLink: /apis/serving.knative.dev/v1/namespaces/companies-catalog/revisions/companies-svc-v1
+    uid: 7b0dbb7e-3052-4a5f-be9f-566c42182f1d
+  spec:
+    containerConcurrency: 0
+    containers:
+    - env:
+      - name: JAVA_OPTS
+        value: -Dvertx.cacheDirBase=/work/vertx
+      - name: MONGODB_CONNECTION_STRING
+        value: mongodb://admcomp:r3dh4t2021!@mongodb:27017/companies
+      image: quay.io/mouachan/companies-svc:1.0
+      name: user-container
+      readinessProbe:
+        successThreshold: 1
+        tcpSocket:
+          port: 0
+      resources: {}
+    enableServiceLinks: false
+    imagePullSecrets:
+    - name: quay-secret
+    timeoutSeconds: 300
+  status:
+    conditions:
+    - lastTransitionTime: "2021-04-26T09:14:25Z"
+      severity: Info
+      status: "True"
+      type: Active
+    - lastTransitionTime: "2021-04-26T09:14:23Z"
+      status: "True"
+      type: ContainerHealthy
+    - lastTransitionTime: "2021-04-26T09:14:23Z"
+      status: "True"
+      type: Ready
+    - lastTransitionTime: "2021-04-26T09:14:23Z"
+      status: "True"
+      type: ResourcesAvailable
+    containerStatuses:
+    - imageDigest: quay.io/mouachan/companies-svc@sha256:961316429caba6900ac140f737db28d8a71b7fba318ad80891c86eae79578eac
+      name: user-container
+    imageDigest: quay.io/mouachan/companies-svc@sha256:961316429caba6900ac140f737db28d8a71b7fba318ad80891c86eae79578eac
+    observedGeneration: 1
+    serviceName: companies-svc-v1
+- apiVersion: serving.knative.dev/v1
+  kind: Configuration
+  metadata:
+    annotations:
+      serving.knative.dev/creator: opentlc-mgr
+      serving.knative.dev/lastModifier: opentlc-mgr
+      serving.knative.dev/routes: companies-svc
+    creationTimestamp: "2021-04-26T09:14:14Z"
+    generation: 1
+    labels:
+      serving.knative.dev/service: companies-svc
+    managedFields:
+    - apiVersion: serving.knative.dev/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:serving.knative.dev/creator: {}
+            f:serving.knative.dev/lastModifier: {}
+            f:serving.knative.dev/routes: {}
+          f:labels:
+            .: {}
+            f:serving.knative.dev/service: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"46c38b79-21c7-4fc7-bca0-e5c34834f54c"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          .: {}
+          f:template:
+            .: {}
+            f:metadata:
+              .: {}
+              f:annotations:
+                .: {}
+                f:autoscaling.knative.dev/minScale: {}
+                f:autoscaling.knative.dev/target: {}
+                f:sidecar.istio.io/inject: {}
+              f:creationTimestamp: {}
+              f:name: {}
+            f:spec:
+              .: {}
+              f:containerConcurrency: {}
+              f:containers: {}
+              f:enableServiceLinks: {}
+              f:imagePullSecrets: {}
+              f:timeoutSeconds: {}
+        f:status:
+          .: {}
+          f:conditions: {}
+          f:latestCreatedRevisionName: {}
+          f:latestReadyRevisionName: {}
+          f:observedGeneration: {}
+      manager: controller
+      operation: Update
+      time: "2021-04-26T09:14:23Z"
+    name: companies-svc
+    namespace: companies-catalog
+    ownerReferences:
+    - apiVersion: serving.knative.dev/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Service
+      name: companies-svc
+      uid: 46c38b79-21c7-4fc7-bca0-e5c34834f54c
+    resourceVersion: "7190809"
+    selfLink: /apis/serving.knative.dev/v1/namespaces/companies-catalog/configurations/companies-svc
+    uid: 20b4ce5b-3263-4240-bf67-5a26915aab56
+  spec:
+    template:
+      metadata:
+        annotations:
+          autoscaling.knative.dev/minScale: "1"
+          autoscaling.knative.dev/target: "10"
+          sidecar.istio.io/inject: "false"
+        creationTimestamp: null
+        name: companies-svc-v1
+      spec:
+        containerConcurrency: 0
+        containers:
+        - env:
+          - name: JAVA_OPTS
+            value: -Dvertx.cacheDirBase=/work/vertx
+          - name: MONGODB_CONNECTION_STRING
+            value: mongodb://admcomp:r3dh4t2021!@mongodb:27017/companies
+          image: quay.io/mouachan/companies-svc:1.0
+          name: user-container
+          readinessProbe:
+            successThreshold: 1
+            tcpSocket:
+              port: 0
+          resources: {}
+        enableServiceLinks: false
+        imagePullSecrets:
+        - name: quay-secret
+        timeoutSeconds: 300
+  status:
+    conditions:
+    - lastTransitionTime: "2021-04-26T09:14:23Z"
+      status: "True"
+      type: Ready
+    latestCreatedRevisionName: companies-svc-v1
+    latestReadyRevisionName: companies-svc-v1
+    observedGeneration: 1
+- apiVersion: serving.knative.dev/v1
+  kind: Route
+  metadata:
+    annotations:
+      serving.knative.dev/creator: opentlc-mgr
+      serving.knative.dev/lastModifier: opentlc-mgr
+    creationTimestamp: "2021-04-26T09:14:15Z"
+    finalizers:
+    - routes.serving.knative.dev
+    generation: 1
+    labels:
+      serving.knative.dev/service: companies-svc
+    managedFields:
+    - apiVersion: serving.knative.dev/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:serving.knative.dev/creator: {}
+            f:serving.knative.dev/lastModifier: {}
+          f:finalizers:
+            .: {}
+            v:"routes.serving.knative.dev": {}
+          f:labels:
+            .: {}
+            f:serving.knative.dev/service: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"46c38b79-21c7-4fc7-bca0-e5c34834f54c"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          .: {}
+          f:traffic: {}
+        f:status:
+          .: {}
+          f:address:
+            .: {}
+            f:url: {}
+          f:conditions: {}
+          f:observedGeneration: {}
+          f:traffic: {}
+          f:url: {}
+      manager: controller
+      operation: Update
+      time: "2021-04-26T09:14:23Z"
+    name: companies-svc
+    namespace: companies-catalog
+    ownerReferences:
+    - apiVersion: serving.knative.dev/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Service
+      name: companies-svc
+      uid: 46c38b79-21c7-4fc7-bca0-e5c34834f54c
+    resourceVersion: "7190845"
+    selfLink: /apis/serving.knative.dev/v1/namespaces/companies-catalog/routes/companies-svc
+    uid: 0f51e578-10a9-44f6-bc0d-551064be06c1
+  spec:
+    traffic:
+    - configurationName: companies-svc
+      latestRevision: true
+      percent: 100
+  status:
+    address:
+      url: http://companies-svc.companies-catalog.svc.cluster.local
+    conditions:
+    - lastTransitionTime: "2021-04-26T09:14:23Z"
+      status: "True"
+      type: AllTrafficAssigned
+    - lastTransitionTime: "2021-04-26T09:14:23Z"
+      message: autoTLS is not enabled
+      reason: TLSNotEnabled
+      status: "True"
+      type: CertificateProvisioned
+    - lastTransitionTime: "2021-04-26T09:14:24Z"
+      status: "True"
+      type: IngressReady
+    - lastTransitionTime: "2021-04-26T09:14:24Z"
+      status: "True"
+      type: Ready
+    observedGeneration: 1
+    traffic:
+    - latestRevision: true
+      percent: 100
+      revisionName: companies-svc-v1
+    url: http://companies-svc-companies-catalog.apps.cluster-c0fb.c0fb.sandbox1751.opentlc.com
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
