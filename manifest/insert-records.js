@@ -1,4 +1,4 @@
-    var dateCalcul = new Date(2020, 07, 24);
+  var dateCalcul = new Date(2020, 07, 24);
   db.notation.insert({  siren: "542107651",
          "dateCalcul": dateCalcul,
          "note": "A",

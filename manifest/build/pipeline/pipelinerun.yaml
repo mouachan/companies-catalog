@@ -1,0 +1,19 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: maven-test-pipeline-run
+spec:
+  pipelineRef:
+    name: maven-test-pipeline
+  params:
+    - name: dockerfile-path
+      value: src/main/docker/Dockerfile.jvm
+    - name: image-name
+      value: quay.io/mouachan/companies-svc:custom
+  workspaces:
+    - name: maven-settings
+      configMap:
+        name: custom-maven-settings
+    - name: shared-workspace
+      persistentVolumeClaim:
+        claimName: maven-source-pvc

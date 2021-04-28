@@ -1,0 +1,65 @@
+---
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineResource
+metadata:
+  name: demo-git-source
+spec:
+  type: git
+  params:
+    - name: revision
+      value: master
+    - name: url
+      value: https://github.com/mouachan/companies-catalog/companies-svc
+---
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineResource
+metadata:
+  name: companies-svc-image-native
+spec:
+  type: image
+  params:
+    - name: url
+      value: quay.io/mouachan/companies-svc:native
+---
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineResource
+metadata:
+  name: companies-svc-image-jvm
+spec:
+  type: image
+  params:
+    - name: url
+      value: quay.io/mouachan/companies-svc:jvm
+---
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineResource
+metadata:
+  name: companies-svc-local-image-native
+spec:
+  type: image
+  params:
+    - name: url
+      # need to enable registry addon in minikube via minikube addon enable registry
+      value: dev.local/rhdevelopers/pipeline-companies-svc:native
+---
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineResource
+metadata:
+  name: companies-svc-local-image-jvm
+spec:
+  type: image
+  params:
+    - name: url
+      # need to enable registry addon in minikube via minikube addon enable registry
+      value: dev.local/rhdevelopers/pipeline-companies-svc:jvm
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: m2-cache
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 8Gi

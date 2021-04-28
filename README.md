@@ -60,7 +60,17 @@ create a knative-serving instance
 ```shell
 ./manifest/scripts/knative-serving.sh
 ```
+#### Install Openshift Pipelines Operator (Tekton) from Operator Hub
+
 #### Build the application through tekton pipeline
+
+```shell
+tkn pipeline start build-and-deploy \
+    -w name=shared-workspace,volumeClaimTemplateFile=https://raw.githubusercontent.com/mouachan/companies-catalog/main/manifest/build/pipeline/persistent_volume_claim.yaml \
+    -p deployment-name=pipelines-companies-catalog \
+    -p git-url=https://github.com/mouachan/companies-catalog.git \
+    -p IMAGE=image-registry.openshift-image-registry.svc:5000/pipelines-companies/pipelines-companies-catalog \
+```
 
 
 
@@ -124,3 +134,13 @@ oc process companies-catalog -p MONGODB_USER=admcomp -p MONGODB_PASSWORD=r3dh4t2
 ```
 oc delete configmap/companiesdb-init secret/mongodb service/mongodb persistentvolumeclaim/mongodb deploymentconfig.apps.openshift.io/mongodb service.serving.knative.dev/companies-svc template/companies-catalog 
 ```
+
+
+
+##### Pipeline 
+
+oc adm policy add-scc-to-user privileged -z default -n catalog-pipeline  
+oc edit configmap config-defaults -n openshift-pipelines
+oc create clusterrolebinding pipeline --clusterrole=cluster-admin --serviceaccount=catalog-pipeline:pipeline
+oc secrets link pipeline quay-secret
+
