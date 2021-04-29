@@ -1,0 +1,9 @@
+apiVersion: helm.openshift.io/v1beta1
+kind: HelmChartRepository
+metadata:
+  name: bbank-repo
+spec:
+ # optional name that might be used by console
+  name: Bbank-repo
+  connectionConfig:
+    url: https://mouachan.github.io/companies-catalog/
