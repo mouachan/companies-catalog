@@ -4,6 +4,6 @@ metadata:
   name: bbank-repo
 spec:
  # optional name that might be used by console
-  name: Bbank-repo
+  name: Bbank Helm Charts
   connectionConfig:
-    url: https://mouachan.github.io/companies-catalog/
+    url:  https://mouachan.github.io/companies-catalog/companies-catalog-helm
