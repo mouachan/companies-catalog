@@ -3,13 +3,13 @@ entries:
   companies-catalog-helm:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-04-29T12:24:59.537465+02:00"
+    created: "2021-04-29T12:31:10.454295+02:00"
     description: Entreprise catalog
-    digest: 7253ec4814d1792d98540814a80e5f59b3f7bc1cb622e4a796d2e2671aa583bc
+    digest: 92d1c23a560c34bbcb742dd19cf7d08693ad11a34ee4583d1069dcdba14ae0c0
     icon: https://github.com/mouachan/companies-catalog/blob/d57058b073a6fea5d43229f663d7ef62f9efa074/asset/logo.png
     name: companies-catalog-helm
     type: application
     urls:
     - https://mouachan.github.io/companies-catalog/companies-catalog-helm-0.1.0.tgz
     version: 0.1.0
-generated: "2021-04-29T12:24:59.536574+02:00"
+generated: "2021-04-29T12:31:10.453165+02:00"
