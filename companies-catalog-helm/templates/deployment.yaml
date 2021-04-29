@@ -1,61 +1,107 @@
+{{- if and .Values.mongodb.install }}
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "companies-catalog-helm.fullname" . }}
+  name: "{{ .Values.appName }}-mongodb"
   labels:
-    {{- include "companies-catalog-helm.labels" . | nindent 4 }}
+    app: "{{ .Values.appName }}"
+    container: mongodb
 spec:
-  {{- if not .Values.autoscaling.enabled }}
-  replicas: {{ .Values.replicaCount }}
-  {{- end }}
+  strategy:
+    type: Recreate
+    # recreateParams:
+    #   post:
+    #     execNewPod:
+    #       command:
+    #       - /bin/sh
+    #       - -c
+    #       - mongo mongodb.companies.svc.cluster.local/$MONGODB_DATABASE -u $MONGODB_USER -p $MONGODB_PASSWORD --eval="${MONGO_INIT_SCRIPT}"
+    #     containerName: mongodb
+    #     failurePolicy: ignore
+  replicas: 1
   selector:
     matchLabels:
-      {{- include "companies-catalog-helm.selectorLabels" . | nindent 6 }}
+      app: "{{ .Values.appName }}"
+      deploymentconfig: mongodb
+      container: mongodb
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
-      annotations:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
       labels:
-        {{- include "companies-catalog-helm.selectorLabels" . | nindent 8 }}
+        app: "{{ .Values.appName }}"
+        deploymentconfig: mongodb
+        container: mongodb
     spec:
-      {{- with .Values.imagePullSecrets }}
-      imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      serviceAccountName: {{ include "companies-catalog-helm.serviceAccountName" . }}
-      securityContext:
-        {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
-        - name: {{ .Chart.Name }}
-          securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
-          ports:
-            - name: http
-              containerPort: 80
-              protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /
-              port: http
-          readinessProbe:
-            httpGet:
-              path: /
-              port: http
-          resources:
-            {{- toYaml .Values.resources | nindent 12 }}
-      {{- with .Values.nodeSelector }}
-      nodeSelector:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      {{- with .Values.affinity }}
-      affinity:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      {{- with .Values.tolerations }}
-      tolerations:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+      - name: mongodb
+        image: {{ .Values.mongodb.image }}
+        ports:
+        - containerPort: 27017
+          protocol: TCP
+        readinessProbe:
+          timeoutSeconds: 1
+          initialDelaySeconds: 3
+          exec:
+            command:
+            - "/bin/sh"
+            - "-i"
+            - "-c"
+            - mongo 127.0.0.1:27017/$MONGODB_DATABASE -u $MONGODB_USER -p $MONGODB_PASSWORD
+              --eval="quit()"
+        livenessProbe:
+          timeoutSeconds: 1
+          initialDelaySeconds: 30
+          tcpSocket:
+            port: 27017
+        env:
+        - name: MONGODB_USER
+          valueFrom:
+            secretKeyRef:
+              key: username
+              name: "{{ .Values.appName }}-mongodb-connection"
+        - name: MONGODB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: password
+              name: "{{ .Values.appName }}-mongodb-connection"
+        - name: MONGODB_ADMIN_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: adminPassword
+              name: "{{ .Values.appName }}-mongodb-connection"
+        - name: MONGODB_DATABASE
+          value: "{{ .Values.mongodb.database }}"
+        - name: MONGO_INIT_SCRIPT
+          valueFrom:
+            configMapKeyRef:
+              name: companiesdb-init
+              key: initdb.js 
+        resources:
+          limits:
+            memory: 512Mi
+        volumeMounts:
+        - name: "{{ .Values.appName }}-mongodb-data"
+          mountPath: "/var/lib/mongodb/data"
+        - mountPath: /var/lib/mongodb/data/scripts
+          #subpath: initdb.js 
+          name: companiesdb-init
+        terminationMessagePath: "/dev/termination-log"
+        imagePullPolicy: IfNotPresent
+        securityContext:
+          capabilities: {}
+          privileged: false
+      volumes:
+      - name: "{{ .Values.appName }}-mongodb-data"
+        {{- if .Values.mongodb.persistent }}
+        persistentVolumeClaim:
+          claimName: "{{ .Values.appName }}-mongodb"
+        {{- else }}
+        emptyDir:
+          medium: ''
+        {{- end }}
+      - name: companiesdb-init
+        configMap:
+          name: companiesdb-init
+      restartPolicy: Always
+      dnsPolicy: ClusterFirst
+{{- end }}

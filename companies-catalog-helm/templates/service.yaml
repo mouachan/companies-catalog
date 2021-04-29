@@ -1,15 +1,47 @@
+kind: Service
 apiVersion: v1
+metadata:
+  name: "{{ .Values.appName }}-mongodb"
+  labels:
+    app: "{{ .Values.appName }}"
+    container: mongodb
+spec:
+  ports:
+  - name: mongodb
+    protocol: TCP
+    port: 27017
+    targetPort: 27017
+    nodePort: 0
+  selector:
+    app: "{{ .Values.appName }}"
+    container: mongodb
+  type: ClusterIP
+  sessionAffinity: None
+---
+{{- if .Values.apps.install }}
+apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: {{ include "companies-catalog-helm.fullname" . }}
-  labels:
-    {{- include "companies-catalog-helm.labels" . | nindent 4 }}
+  name: companies-svc
 spec:
-  type: {{ .Values.service.type }}
-  ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
-      protocol: TCP
-      name: http
-  selector:
-    {{- include "companies-catalog-helm.selectorLabels" . | nindent 4 }}
+  template:
+    metadata:
+      name: companies-svc-v1
+      annotations:
+        # disable istio-proxy injection
+        sidecar.istio.io/inject: "false"
+        # the minimum number of pods to scale down to
+        autoscaling.knative.dev/minScale: "1"
+        # Target 10 crud-requests per pod.
+        autoscaling.knative.dev/target: "10"
+    spec:
+      containers:
+        - image: {{ .Values.apps.image }}
+          env:
+            - name: JAVA_OPTS
+              value: "{{ .Values.apps.javaopts }}"
+            - name: MONGODB_CONNECTION_STRING
+              value: 'mongodb://{{ .Values.mongodb.username }}:{{ .Values.mongodb.password }}@{{ .Values.mongodb.uri }}/{{ .Values.mongodb.database }}'
+      imagePullSecrets:
+        - name: quay-secret
+{{- end }}
