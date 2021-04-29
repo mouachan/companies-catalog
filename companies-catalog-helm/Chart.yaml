@@ -1,7 +1,7 @@
 apiVersion: v2
 name: companies-catalog-helm
-description: A Helm chart for Kubernetes
-
+description: Entreprise catalog
+icon: https://github.com/mouachan/companies-catalog/blob/d57058b073a6fea5d43229f663d7ef62f9efa074/asset/logo.png
 # A chart can be either an 'application' or a 'library' chart.
 #
 # Application charts are a collection of templates that can be packaged into versioned archives
