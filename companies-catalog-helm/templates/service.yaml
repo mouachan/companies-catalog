@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: "{{ .Values.appName }}-mongodb"
+  name: "mongodb"
   labels:
     app: "{{ .Values.appName }}"
     container: mongodb
@@ -41,7 +41,7 @@ spec:
             - name: JAVA_OPTS
               value: "{{ .Values.apps.javaopts }}"
             - name: MONGODB_CONNECTION_STRING
-              value: 'mongodb://{{ .Values.mongodb.username }}:{{ .Values.mongodb.password }}@{{ .Values.mongodb.uri }}/{{ .Values.mongodb.database }}'
+              value: "mongodb://{{ .Values.mongodb.username }}:{{ .Values.mongodb.password }}@{{ .Values.mongodb.uri }}/{{ .Values.mongodb.database }}"
       imagePullSecrets:
         - name: quay-secret
 {{- end }}

@@ -6,4 +6,4 @@ spec:
  # optional name that might be used by console
   name: Bbank Helm Charts
   connectionConfig:
-    url:  https://mouachan.github.io/companies-catalog/companies-catalog-helm
+    url:  https://mouachan.github.io/companies-catalog-helm
