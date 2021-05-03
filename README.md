@@ -2,9 +2,8 @@
 
 ## to deploy  the apps on openshift
 Please install : 
-- oc cli : https://docs.openshift.com/container-platform/4.5/cli_reference/openshift_cli/getting-started-cli.html
-- kn cli : https://docs.openshift.com/container-platform/4.5/serverless/installing_serverless/installing-kn.html#installing-kn
-- kogito cli : https://docs.jboss.org/kogito/release/latest/html_single/#proc-kogito-operator-and-cli-installing_kogito-deploying-on-openshift
+- oc cli : https://docs.openshift.com/container-platform/4.7/cli_reference/openshift_cli/getting-started-cli.html
+- kn cli : https://docs.openshift.com/container-platform/4.7/serverless/installing_serverless/installing-kn.html#installing-kn
 
 
 ### connect to Openshift server
@@ -131,7 +130,7 @@ oc create -f manifest/companies-catalog-template.yaml
 oc process companies-catalog -p MONGODB_USER=admcomp -p MONGODB_PASSWORD=r3dh4t2021! -p MONGODB_DATABASE=companies -p MONGODB_ADMIN_PASSWORD=r3dh4t2021! -p REGISTRY_SECRET=quay-secret -p IMAGE_SVC_CATALOG=quay.io/mouachan/companies-svc:1.0 -p SVC_CATALOG_NAME=companies-svc | oc create -f -  
 ```
 ### delete all resources 
-```
+```shell
 oc delete configmap/companiesdb-init secret/mongodb service/mongodb persistentvolumeclaim/mongodb deploymentconfig.apps.openshift.io/mongodb service.serving.knative.dev/companies-svc template/companies-catalog 
 ```
 
@@ -139,8 +138,83 @@ oc delete configmap/companiesdb-init secret/mongodb service/mongodb persistentvo
 
 ##### Pipeline 
 
+configure the authorizations
+```shell
 oc adm policy add-scc-to-user privileged -z default -n catalog-pipeline  
 oc edit configmap config-defaults -n openshift-pipelines
 oc create clusterrolebinding pipeline --clusterrole=cluster-admin --serviceaccount=catalog-pipeline:pipeline
 oc secrets link pipeline quay-secret
+```
+create the maven pvc 
+```shell
+oc apply -f ./manifest/build/pvc/maven_source_pvc.yaml
+```
+create the configmap containing the custom settings.xml
+```shell
+oc apply -f ./manifest/build/tasks/custom_maven_settings.yaml
+```
+create the mvn task
+```shell 
+oc apply -f ./manifest/build/tasks/mvn.yaml
+```
+create the git clone task
+```shell 
+oc apply -f ./manifest/build/tasks/git_clone.yaml
+```
+create the build image task
+```shell 
+oc apply -f ./manifest/build/tasks/build-image.yaml
+```
+apply the pipeline
+```shell 
+oc apply -f ./manifest/build/pipeline/pipeline.yaml
+```
+
+run the pipeline
+```shell 
+oc apply -f ./manifest/build/pipeline/pipelinerun.yaml
+```
+
+###### Create a Helm repository and add it to developper catalog
+
+package the helm charts
+```shell
+helm package companies-catalog-helm 
+```
+
+from you github create a new git repository (companies-catalog-helm)
+Go back to your browser, in the “settings” section of your git repository, scroll down to Github Pages sectionand select the gh-pages as a branch. (more details on https://medium.com/@mattiaperi/create-a-public-helm-chart-repository-with-github-pages-49b180dbb417)
+
+clone the repository 
+
+copy the package
+```shell
+mv ../companies-catalog/companies-catalog-helm/companies-catalog-helm-0.1.0.tgz .
+```
+Create an index
+```shell
+helm repo index companies-catalog-helm/ --url https://mouachan.github.io/companies-catalog-helm
+```
+Push
+```shell
+git add . && git commit -m “Initial commit” && git push origin main
+```
+
+add a the helm chart repository to the openshift developer catalog
+```shell
+cat <<EOF | oc apply -f -
+apiVersion: helm.openshift.io/v1beta1
+kind: HelmChartRepository
+metadata:
+  name: bbank-apps-helm-repo
+spec:
+  name: bbank-apps-helm-repo
+  connectionConfig:
+    url: https://mouachan.github.io/companies-catalog-helm
+EOF
+```
+
+
+
+
 
