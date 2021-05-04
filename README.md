@@ -138,12 +138,9 @@ oc delete configmap/companiesdb-init secret/mongodb service/mongodb persistentvo
 
 ##### Pipeline 
 
-configure the authorizations
+create new namespace
 ```shell
-oc adm policy add-scc-to-user privileged -z default -n catalog-pipeline  
-oc edit configmap config-defaults -n openshift-pipelines
-oc create clusterrolebinding pipeline --clusterrole=cluster-admin --serviceaccount=catalog-pipeline:pipeline
-oc secrets link pipeline quay-secret
+oc new-project catalog-pipeline 
 ```
 create the maven pvc 
 ```shell
@@ -169,7 +166,13 @@ apply the pipeline
 ```shell 
 oc apply -f ./manifest/build/pipeline/pipeline.yaml
 ```
-
+configure the authorizations
+```shell
+oc adm policy add-scc-to-user privileged -z default -n catalog-pipeline  
+oc edit configmap config-defaults -n openshift-pipelines
+oc create clusterrolebinding pipeline --clusterrole=cluster-admin --serviceaccount=catalog-pipeline:pipeline
+oc secrets link pipeline quay-secret
+```
 run the pipeline
 ```shell 
 oc apply -f ./manifest/build/pipeline/pipelinerun.yaml
